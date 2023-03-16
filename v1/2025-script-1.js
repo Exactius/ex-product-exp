@@ -651,20 +651,18 @@
         await jQuery(".products-wrapper").remove();
         //.product-list-area.content-section
         jQuery("header").after(
-          '<div class="products-wrapper"><div class="products-inner"><div class="products-title"><h2>We&apos;ve got your back</h2></div> <div class="products-boxes"> </div></div></div>'
+          '<div class="products-wrapper"><div class="products-inner"><div class="products-title"><h2>We&apos;ve got your back</h2></div><p class="product-description">The following plans are available on your area</p> <div class="products-boxes"> </div></div></div>'
         );
         await jQuery(".products-wrapper .products-boxes").html("");
         const products = await jQuery(
           ".page-wrap.product-list .product-item .card"
         );
         if (document.querySelector(".products-wrapper")) {
-          document
-            .querySelector(".products-wrapper")
-            .scrollIntoView({
-              behavior: "smooth",
-              block: "end",
-              inline: "nearest"
-            });
+          document.querySelector(".products-wrapper").scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+            inline: "nearest"
+          });
         }
         let priority = 10;
         for await (product of products) {
