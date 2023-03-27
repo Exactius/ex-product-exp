@@ -1173,6 +1173,14 @@
               ".upsell-product-card--productNameDiv__productTitle"
             )[i];
 
+            const price = productList.find(
+              ".upsell-product-card--productNamePriceDiv__priceMainStyle"
+            )[i];
+
+            const priceDuration = productList.find(
+              ".upsell-product-card--productNamePriceDiv__priceSubStyle"
+            )[i];
+
             const btnOriginal = productList.find(
               ".enroll-now.ga-track-upgrade-cart"
             );
@@ -1180,6 +1188,8 @@
             // Content of text finded.
             const imageSRC = image.getAttribute("src");
             const titleContent = title.innerHTML.trim();
+            const priceContent = price.innerHTML.trim();
+            const priceDurationContent = priceDuration.innerHTML.trim();
 
             // containers
             const btn = document.createElement("button");
@@ -1202,12 +1212,6 @@
               populerText = "Best value";
             }
 
-            //  ${
-            //       populerText !== ""
-            //         ? `<p class="label-modal-populer">${populerText}</p>`
-            //         : ""
-            //     }
-
             // Start Creating Design
             htmlContainerDiv.innerHTML = `
              <div class="">
@@ -1217,7 +1221,6 @@
                 />
               </div>
               <div class="title-modal-populer">
-               
                 <p>${titleContent}</p>
               </div>
               `;
@@ -1232,8 +1235,8 @@
             }
                 <div class="card-content">
                   <p>Only</p>
-                  <p class="price-modal-populer">$11.99</p>
-                  <p>/Month</p>
+                  <p class="price-modal-populer">${priceContent}</p>
+                  <p>${priceDurationContent}</p>
                 </div>`;
 
             buttonSection.append(btn);
