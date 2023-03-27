@@ -653,7 +653,7 @@
         await jQuery(".products-wrapper").remove();
         //.product-list-area.content-section
         jQuery("header").after(
-          '<div class="products-wrapper"><div class="products-inner"><div class="products-title"><h2>Protection Plan</h2></div><div class="products-boxes"> </div></div></div>'
+          '<div class="products-wrapper"><div class="products-inner"><div class="products-title"><h2>Protection Plans</h2></div><div class="products-boxes"> </div></div></div>'
         );
         await jQuery(".products-wrapper .products-boxes").html("");
         const products = await jQuery(
@@ -1134,7 +1134,7 @@
         productContainer.find(".product-promotion").html(`
           <div class="modal-popup-header">
           <h1>Your home is still not 100% covered</h1>
-          <p>Older homes need more repairs. Don&apos;t risk it! Get more protection and save up to 17%.</p>
+          <p>Older homes need more repairs. Don't risk it! Get more protection and enjoy greater savings.</p>
           </div>
         `);
 
