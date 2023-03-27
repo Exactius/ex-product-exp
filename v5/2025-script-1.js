@@ -1202,6 +1202,12 @@
               populerText = "Best value";
             }
 
+            //  ${
+            //       populerText !== ""
+            //         ? `<p class="label-modal-populer">${populerText}</p>`
+            //         : ""
+            //     }
+
             // Start Creating Design
             htmlContainerDiv.innerHTML = `
              <div class="">
@@ -1211,11 +1217,7 @@
                 />
               </div>
               <div class="title-modal-populer">
-                ${
-                  populerText !== ""
-                    ? `<p class="label-modal-populer">${populerText}</p>`
-                    : ""
-                }
+               
                 <p>${titleContent}</p>
               </div>
               `;

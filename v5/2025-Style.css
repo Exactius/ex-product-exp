@@ -960,6 +960,13 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   margin-top: 40px;
 }
 
+@media only screen and (max-width: 768px) {
+  .modal-popup-header h1 {
+    font-size: 25px;
+    line-height: 27px;
+  }
+}
+
 .modal-popup-header p {
   font-family: "Roboto";
   font-style: normal;
@@ -971,6 +978,12 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   order: 1;
   flex-grow: 0;
   text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-popup-header p {
+    font-size: 14px;
+  }
 }
 
 .bg-white {
@@ -1004,10 +1017,26 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   max-width: 690px;
 }
 
-.img {
-  width: 115px;
-  height: 100px;
+@media only screen and (max-width: 768px) {
+  .flex-product {
+    flex-direction: column;
+  }
+}
+
+.flex-product .img {
+  /* width: 115px;
+  height: 100px; */
+  width: auto;
+  height: 92px;
   border-radius: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .flex-product .img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
 }
 
 .title-modal-populer {
@@ -1017,6 +1046,10 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   color: #000000;
   margin: 10px;
   width: 100%;
+}
+
+.title-modal-populer p {
+  margin-bottom: 0 !important;
 }
 
 .label-modal-populer {
@@ -1045,6 +1078,10 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   margin-right: 14px;
 }
 
+.card-content p {
+  margin-bottom: 0px;
+}
+
 .price-modal-populer {
   font-size: 22px;
   line-height: 26px;
@@ -1057,6 +1094,22 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   border-radius: 8px;
   padding: 16px;
   border: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-c {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+  }
+
+  .card-content {
+    flex: 1;
+  }
+
+  .Upgrade {
+    flex: 1;
+  }
 }
 
 .Upgrade:hover {
