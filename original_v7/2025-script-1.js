@@ -653,7 +653,7 @@
         await jQuery(".products-wrapper").remove();
         //.product-list-area.content-section
         jQuery("header").after(
-          '<div class="products-wrapper"><div class="products-inner"><div class="products-title"><h2>We&apos;ve got your back</h2></div><p class="product-description">The following plans are available in your area</p> <div class="products-boxes"> </div></div></div>'
+          '<div class="products-wrapper"><div class="products-inner"><div class="products-title"><h2>Protection Plan</h2></div><div class="products-boxes"> </div></div></div>'
         );
         await jQuery(".products-wrapper .products-boxes").html("");
         const products = await jQuery(
