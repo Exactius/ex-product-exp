@@ -1161,6 +1161,10 @@
         document
           .querySelectorAll(".container-fluid.upsell-product-card--container")
           .forEach((eachProduct, i) => {
+            // IF duplicates add remove logic here (Change this)
+            // const flexProduct = eachProduct.find(".flex-product");
+            // flexProduct.remove();
+
             // containers
             const htmlContainerDiv = document.createElement("div");
             htmlContainerDiv.classList.add("flex-product");
@@ -1196,7 +1200,7 @@
             btn.classList.add("Upgrade");
             btn.innerHTML = "Upgrade";
             btn.onclick = function () {
-              btnOriginal.click();
+              btnOriginal[i].click();
             };
 
             let textSaveUpto = "",
