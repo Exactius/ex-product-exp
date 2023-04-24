@@ -1,0 +1,30 @@
+name: Schedule repo backup
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: '00 3 * * *' #daily at 3:00 UTC
+    #- cron: '00 3 * * 0' #weekly at 3:00 UTC Sun
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  schedule-backup:
+   runs-on: ubuntu-latest
+   permissions:
+     contents: 'read'
+     id-token: 'write'
+    
+   steps:
+    - name: get epository name
+      run: echo "REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+    - id: 'checkout'
+      uses: exactius/github2gcs@main
+      with:
+        workload_identity_provider: ${{ secrets.WIF_BU_PROVIDER }}
+        service_account: ${{ secrets.WIF_BU_SA }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_BU_WEBHOOK }}
+        GCS_BUCKET: ex-repos
+        myrepo: ${{ github.repository }}
+        repodst: ${REPOSITORY_NAME}        
+        CHANNEL_ID: alerts-and-notifications
+        token: ${{ secrets.GITHUB_TOKEN }}
