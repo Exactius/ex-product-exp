@@ -722,9 +722,8 @@
           singleProduct["popularItem"] = popularItem;
           singleProduct["bestProductItem"] = bestProductItem;
           if (
-            name.toLowerCase() ===
-              "water line and sewer line protection program" ||
-            name.toLowerCase() === "water line and sewer line insurance policy"
+            name.toLowerCase() === "water line protection program" ||
+            name.toLowerCase() === "water line insurance policy"
           ) {
             singleProduct["priority"] = 0;
           } else {
