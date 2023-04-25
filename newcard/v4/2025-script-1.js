@@ -686,6 +686,7 @@
           });
         }
         let priority = 10;
+
         for await (product of products) {
           const singleProduct = {};
           let name = jQuery(product).find(".program-name").html().trim();
@@ -721,14 +722,29 @@
           singleProduct["image"] = image;
           singleProduct["popularItem"] = popularItem;
           singleProduct["bestProductItem"] = bestProductItem;
+
           if (
             name.toLowerCase() === "water line protection program" ||
             name.toLowerCase() === "water line insurance policy"
           ) {
             singleProduct["priority"] = 0;
+          } else if (
+            name.toLowerCase() ===
+              "water line and sewer line protection program" ||
+            name.toLowerCase() === "water line and sewer line insurance policy"
+          ) {
+            singleProduct["priority"] = 1;
+          } else if (
+            name.toLowerCase() ===
+              "water line, sewer line and in-Home plumbing protection program" ||
+            name.toLowerCase() ===
+              "water line, sewer line and in-Home plumbing insurance policy"
+          ) {
+            singleProduct["priority"] = 2;
           } else {
             singleProduct["priority"] = priority;
           }
+
           priority += 1;
           ourProducts.push(singleProduct);
         }
