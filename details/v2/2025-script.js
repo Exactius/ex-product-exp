@@ -150,8 +150,7 @@
     const residentialVar = urlArray[urlArray.length - 2]
     const lastVar = urlArray[urlArray.length - 1]
 
-    if (residentialVar === "residential" && lastVar.includes('-')) {
-   
+    if ((residentialVar === "residential" || residentialVar === "service") && lastVar.includes('-')) {
       createTest();
     } else {
       removeTest();
