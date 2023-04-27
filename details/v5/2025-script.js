@@ -86,10 +86,10 @@
     }, 100);
   }
 
-  jQuery(window).on('resize', function () {
-      url = location.href;
-      urlCheck(url);
-  });
+  // jQuery(window).on('resize', function () {
+  //     url = location.href;
+  //     urlCheck(url);
+  // });
 
   async function removeTest() {
     jQuery("body").removeClass("spz-2025");
