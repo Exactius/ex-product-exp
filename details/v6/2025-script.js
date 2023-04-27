@@ -19,7 +19,7 @@
 
       await jQuery(".detail-link.links-pad-marg.mobile-display-style").remove();
 
-      await jQuery(".program-head").before(
+      await jQuery(".content-section.detail-header-section.content-style .program-head").before(
           `<div id="detail-link-wrapper" _ngcontent-c9="" class="detail-link-wrapper page-wrap row fixed-header-wrapper ng-tns-c9-0 ng-star-inserted">
           <div _ngcontent-c9="" class="col-12 left-box tab-width-100 PD-0">
               
@@ -90,6 +90,7 @@
   //     url = location.href;
   //     urlCheck(url);
   // });
+
 
   async function removeTest() {
     jQuery("body").removeClass("spz-2025");
