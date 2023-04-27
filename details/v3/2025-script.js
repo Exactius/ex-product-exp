@@ -66,11 +66,11 @@
         const descriptionComp = await jQuery(".description-heading-text-content");
         const whatsCoverComp = await jQuery(".covered-repair-section")
 
-        await jQuery(".enroll-box.enroll-now-box").before(
+        await jQuery(".enroll-box.enroll-now-box").after(
           [descriptionComp, whatsCoverComp]
         )
 
-      if(jQuery(".detail-link-wrapper").length != 0){
+      if(await jQuery(".detail-link-wrapper").length != 0){
         clearInterval(productsCheck);
         if (
           document.querySelector(".product-card-spz") &&

@@ -7,16 +7,12 @@
 }
 .spz-2025 .zipcode-searched {
     padding: 0px;
-    margin-bottom: 10px;
 }
 .spz-2025 .content-section {
     margin-bottom: 10px;
 }
-.spz-2025 .no-zipcode-search {
-    margin-bottom: 22px;
-}
 .spz-2025 .enroll-box.enroll-now-box {
-    margin-top: 22px;
+    margin-bottom: 22px;
 }
 @media (max-width: 1000px) { 
     .spz-2025 .terms-btn {
