@@ -20,7 +20,7 @@
       await jQuery(".detail-link.links-pad-marg.mobile-display-style").remove();
 
       await jQuery(".program-head").before(
-          `<div _ngcontent-c9="" class="detail-link-wrapper page-wrap row fixed-header-wrapper ng-tns-c9-0 ng-star-inserted">
+          `<div id="detail-link-wrapper" _ngcontent-c9="" class="detail-link-wrapper page-wrap row fixed-header-wrapper ng-tns-c9-0 ng-star-inserted">
           <div _ngcontent-c9="" class="col-12 left-box tab-width-100 PD-0">
               
               <div _ngcontent-c9="" class="detail-link links-pad-marg mobile-display-style">
@@ -69,8 +69,10 @@
         await jQuery(".enroll-box.enroll-now-box").after(
           [descriptionComp, whatsCoverComp]
         )
-
-      if(await jQuery(".detail-link-wrapper").length != 0){
+      if(
+        jQuery("#detail-link-wrapper").length != 0
+      
+      ){
         clearInterval(productsCheck);
         if (
           document.querySelector(".product-card-spz") &&
@@ -119,10 +121,6 @@
     urlCheck(url);
   });
 
-  jQuery(document).on('DOMSubtreeModified', "article.page-wrap.product-list.row", function () {
-      createTest();
-  });
-
   url = location.href;
   urlCheck(url);
   
@@ -156,6 +154,4 @@
       removeTest();
     }
   }
-
-
 })();
