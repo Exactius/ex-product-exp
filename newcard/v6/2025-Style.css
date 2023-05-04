@@ -92,14 +92,11 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   z-index: 1;
 }
 
-.spz-2025 .products-boxes .Water_Line_and_Sewer_Line_Insurance_Policy {
+.spz-2025 .products-boxes .popular {
   border: 2px solid #005695 !important;
 }
 
-.spz-2025
-  .products-boxes
-  .Water_Line_and_Sewer_Line_Insurance_Policy
-  .enroll-now-spz {
+.spz-2025 .products-boxes .popular .enroll-now-spz {
   background-color: #005695 !important;
   color: white !important;
 }
@@ -1242,6 +1239,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   .product-feature-list::-webkit-scrollbar-track {
   background-color: #dae1e4 !important;
 }
+
 @media (max-width: 991px) {
   .spz-2025
     .products-boxes
