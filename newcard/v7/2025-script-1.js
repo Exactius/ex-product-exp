@@ -727,6 +727,18 @@
             name.toLowerCase() === 'water line and sewer line insurance policy'
           ) {
             singleProduct['priority'] = 12;
+          } else if (
+            name.toLowerCase() === 'water line protection program' ||
+            name.toLowerCase() === 'water line insurance policy'
+          ) {
+            singleProduct['priority'] = 11;
+          } else if (
+            name.toLowerCase() ===
+              'water line, sewer line and in-home plumbing emergency program' ||
+            name.toLowerCase() ===
+              'water line, sewer line and in-home plumbing insurance policy'
+          ) {
+            singleProduct['priority'] = 13;
           } else {
             singleProduct['priority'] = priority;
           }
