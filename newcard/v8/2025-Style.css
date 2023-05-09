@@ -997,12 +997,16 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 
 .spz-2025 .products-wrapper .zipcode-box-wrapper .zipcode-search-box {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
 }
 
 .spz-2025 .products-wrapper .zipcode-box-wrapper .zipcode-search-box button {
   margin-top: 0;
+}
+
+.spz-2025 .products-wrapper .zipcode-box-wrapper .zipcode-search-box .zip-search-error {
+  color: #dc3545;
 }
 
 .spz-2025 .products-wrapper .zipcode-box .current-location {

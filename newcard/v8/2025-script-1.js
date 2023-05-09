@@ -618,18 +618,26 @@
     }
   }
 
-  setInterval(function () {
+  const errorCheck = setInterval(async function () {
     if (noProducts()) {
-      jQuery('.products-wrapper').remove();
+      jQuery('.products-boxes').addClass('hidden');
+      jQuery('.showmore-container').addClass('hidden');
+      jQuery('.showless-container').addClass('hidden');
+      
       if (jQuery('.noproducts-wrapper').length === 0) {
-        jQuery('header').after(
+        jQuery('.zipcode-box-wrapper').after(
           '<div class="noproducts-wrapper"><div class="noproducts-inner"> <p>There are currently no additional protection plans available in your area. Please continue to check back for new programs.</p> </div></div>'
         );
       }
+        await jQuery('#zip-search-error').removeClass('hidden')
+  
     } else {
+        jQuery('#zip-search-error').addClass('hidden')
+        
       jQuery('.noproducts-wrapper').remove();
     }
   }, 1000);
+
   function createTest() {
     if (navigator.userAgent.indexOf('Mac OS X') != -1) {
       jQuery('body').addClass('mac');
@@ -663,6 +671,7 @@
               <form _ngcontent-c8="" class="zipcode-box zipcode-search-box hidden" novalidate="">
                 <div _ngcontent-c8="" class="">
                     <input _ngcontent-c8="" class="search-zipcode text-center ng-untouched ng-pristine ng-valid" maxlength="5" name="zipcode2" type="text" placeholder="">
+                   <div id="zip-search-error" class="zip-search-error hidden" >Please enter a valid zip code</div> 
                 </div>
                 <button _ngcontent-c8="" angulartics2on="click" angularticsaction="click" angularticscategory="button" angularticslabel="zip_code_search" angularticsvalue="0" class="btn primary-btn get-started-btn product-page-search text-transform-none search-button" type="button">
                     <span _ngcontent-c8="" class="desktop-only text-visible">SEARCH</span>
@@ -771,6 +780,13 @@
           const inputVaue = jQuery(
             '.products-wrapper .zipcode-search-box .search-zipcode'
           ).val();
+
+          if(!inputVaue) {
+            jQuery('#zip-search-error').removeClass('hidden')
+          } 
+          // else {
+          //   jQuery('#zip-search-error').addClass('hidden')
+          // }
 
           // setting up value of zip code
           jQuery('[name=zipcode]').val(inputVaue);
