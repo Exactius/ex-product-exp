@@ -14,9 +14,10 @@
     const productsCheck = setInterval(async function () {
       const cartLinkDiv = await jQuery(".cart-link-div");
 
-      console.log("CARD 1", cartLinkDiv.length);
+      const toggleComponent = await jQuery('.toggle');
+      const emptyCardComponent = await jQuery(".no-data-card-empty")
 
-      if (cartLinkDiv.length == 1) {
+      if (jQuery('.stepper-wrapper').length == 0 && toggleComponent.length == 0) {
         await jQuery(".cart-note-div").remove();
         await jQuery(".card-title").text(`Your cart`);
 
@@ -147,17 +148,16 @@
         );
 
         if (
-          !document.querySelector(".cart-note-div") &&
-          cartLinkDiv.length != 0
+          // !document.querySelector(".cart-note-div") &&
+          // cartLinkDiv.length != 0
+          // jQuery('.toggle').length > 0
+          // || jQuery(".no-data-card-empty").length > 0
+          // ||
+           jQuery('.stepper-wrapper').length > 0 
+           || jQuery('.toggle').length > 0
         ) {
           clearInterval(productsCheck);
-          // if (
-          //   document.querySelector(".product-card-spz") &&
-          //   document.querySelectorAll(".product-card-spz[data-program-id]")
-          //     .length == 0
-          // ) {
-          //   await getProducts();
-          // }
+          
         }
       } else {
         clearInterval(productsCheck);
@@ -166,8 +166,6 @@
 
     const otherProductsCheck = setInterval(async function () {
       const cartLinkDiv = await jQuery(".cart-link-div");
-
-      console.log("CARD 2", cartLinkDiv.length);
 
       if (cartLinkDiv.length == 2) {
         await jQuery(".ga-track-remove-product").html(
@@ -245,14 +243,6 @@
           `Upgrade to our bundles for more savings!`
         ) {
           clearInterval(otherProductsCheck);
-
-          // if (
-          //   document.querySelector(".product-card-spz") &&
-          //   document.querySelectorAll(".product-card-spz[data-program-id]")
-          //     .length == 0
-          // ) {
-          //   await getProducts();
-          // }
         }
       }
     }, 100);
@@ -262,6 +252,7 @@
     jQuery("body").removeClass("spz-2025");
     jQuery(".products-wrapper").remove();
     jQuery(".noproducts-wrapper").remove();
+    jQuery(".form-header.row.m-0.hide-desktop").remove();
   }
 
   history.pushState = (function (f) {
