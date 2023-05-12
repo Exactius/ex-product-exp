@@ -14,6 +14,8 @@
     const productsCheck = setInterval(async function () {
       const cartLinkDiv = await jQuery(".cart-link-div");
 
+      console.log("CARD 1", cartLinkDiv.length);
+
       if (cartLinkDiv.length == 1) {
         await jQuery(".cart-note-div").remove();
         await jQuery(".card-title").text(`Your cart`);
@@ -149,13 +151,13 @@
           cartLinkDiv.length != 0
         ) {
           clearInterval(productsCheck);
-          if (
-            document.querySelector(".product-card-spz") &&
-            document.querySelectorAll(".product-card-spz[data-program-id]")
-              .length == 0
-          ) {
-            await getProducts();
-          }
+          // if (
+          //   document.querySelector(".product-card-spz") &&
+          //   document.querySelectorAll(".product-card-spz[data-program-id]")
+          //     .length == 0
+          // ) {
+          //   await getProducts();
+          // }
         }
       } else {
         clearInterval(productsCheck);
@@ -164,6 +166,8 @@
 
     const otherProductsCheck = setInterval(async function () {
       const cartLinkDiv = await jQuery(".cart-link-div");
+
+      console.log("CARD 2", cartLinkDiv.length);
 
       if (cartLinkDiv.length == 2) {
         await jQuery(".ga-track-remove-product").html(
@@ -242,13 +246,13 @@
         ) {
           clearInterval(otherProductsCheck);
 
-          if (
-            document.querySelector(".product-card-spz") &&
-            document.querySelectorAll(".product-card-spz[data-program-id]")
-              .length == 0
-          ) {
-            await getProducts();
-          }
+          // if (
+          //   document.querySelector(".product-card-spz") &&
+          //   document.querySelectorAll(".product-card-spz[data-program-id]")
+          //     .length == 0
+          // ) {
+          //   await getProducts();
+          // }
         }
       }
     }, 100);
