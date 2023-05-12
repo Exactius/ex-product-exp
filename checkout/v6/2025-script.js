@@ -11,13 +11,12 @@
       jQuery("body").addClass("mac");
     }
     jQuery("body").addClass("spz-2025");
+  
     const productsCheck = setInterval(async function () {
-      const cartLinkDiv = await jQuery(".cart-link-div");
+     
 
-      const toggleComponent = await jQuery('.toggle');
-      const emptyCardComponent = await jQuery(".no-data-card-empty")
-
-      if (jQuery('.stepper-wrapper').length == 0 && toggleComponent.length == 0) {
+      if (jQuery('.stepper-wrapper').length == 0 ) {
+        console.log('CALLL')
         await jQuery(".cart-note-div").remove();
         await jQuery(".card-title").text(`Your cart`);
 
@@ -153,9 +152,10 @@
           // jQuery('.toggle').length > 0
           // || jQuery(".no-data-card-empty").length > 0
           // ||
-           jQuery('.stepper-wrapper').length > 0 
-           || jQuery('.toggle').length > 0
+           (jQuery('.stepper-wrapper').length > 0 
+           && jQuery('.toggle').length > 0) || jQuery(".no-data-card-empty").length > 0
         ) {
+          console.log('INTERVAL CLEAR ???', jQuery('.toggle').length)
           clearInterval(productsCheck);
           
         }
@@ -166,7 +166,6 @@
 
     const otherProductsCheck = setInterval(async function () {
       const cartLinkDiv = await jQuery(".cart-link-div");
-
       if (cartLinkDiv.length == 2) {
         await jQuery(".ga-track-remove-product").html(
           `
@@ -244,6 +243,8 @@
         ) {
           clearInterval(otherProductsCheck);
         }
+      } else {
+        // clearInterval(otherProductsCheck);
       }
     }, 100);
   }
