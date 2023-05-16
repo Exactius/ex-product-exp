@@ -960,7 +960,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   margin-top: 40px;
 }
 .modal-popup-header h1 span {
-  color: #BC2A3C;
+  color: #bc2a3c;
 }
 
 @media only screen and (max-width: 768px) {
@@ -976,7 +976,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: #000000B2;
+  color: #000000b2;
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -1027,7 +1027,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 }
 
 .flex-product .img {
-  width: 115px;
+  width: 152px;
   height: 92px;
   border-radius: 8px;
 }
@@ -1077,7 +1077,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #EEF8FF;
+  background-color: #eef8ff;
   border-radius: 10px;
   color: #005695;
   font-weight: 600;
@@ -1090,7 +1090,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 
 .card-content {
   margin-right: 14px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -1099,14 +1099,14 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 
 .card-content p {
   margin-bottom: 0px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
 }
 
-.card-content p span {  
+.card-content p span {
   font-weight: 600;
   font-size: 20px;
   line-height: 130%;
@@ -1119,7 +1119,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 }
 
 .Upgrade {
-  background-color: #EC7923;
+  background-color: #ec7923;
   color: white;
   border-radius: 8px;
   padding: 12px 20px;
@@ -1173,7 +1173,6 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 
 @media only screen and (max-width: 768px) {
   .modal-footer {
-   
     padding-right: 0px !important;
     padding-left: 35px !important;
   }
@@ -1183,13 +1182,14 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #004A81;
+  color: #004a81;
   text-align: end;
   margin-top: 4px;
   border: 0;
   background: transparent;
   margin-left: 0px !important;
   padding-left: 0px !important;
+  margin-left: -10px !important;
 }
 
 .cards-content-btn:hover {
@@ -1205,8 +1205,8 @@ body.spz-2025 .product-list-area.fixed-nav-product {
   padding-bottom: 0 !important;
 }
 
-@media only screen and (min-width: 1440px){
+@media only screen and (min-width: 1440px) {
   .modal-dialog[_ngcontent-c11] {
-      max-width: 900px!important;
-}
+    max-width: 900px !important;
+  }
 }
