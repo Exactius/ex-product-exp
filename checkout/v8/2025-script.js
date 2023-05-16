@@ -11,57 +11,29 @@
       jQuery("body").addClass("mac");
     }
     jQuery("body").addClass("spz-2025");
-  
-    const productsCheck = setInterval(async function () {
-     
 
-      if (jQuery('.stepper-wrapper').length == 0 ) {
-        console.log('CALLL')
+    const productsCheck = setInterval(async function () {
+      if (
+        jQuery(".toggle").length == 0
+      ) {
         await jQuery(".cart-note-div").remove();
         await jQuery(".card-title").text(`Your cart`);
 
-        await jQuery(".form-header").addClass("hide-mobile");
-        await jQuery(".form-header").html(
-          `
-          <div class="stepper-wrapper">
-            <div class="stepper-item completed">
-              <div class="step-counter"><svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.863647 3.19413L2.93246 5.26294L7.5 1" stroke="#0098DB" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              </div>
-              <div class="step-name">Enter ZIP code</div>
-            </div>
-            <div class="stepper-item completed">
-              <div class="step-counter">
-              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0.863647 3.19413L2.93246 5.26294L7.5 1" stroke="#0098DB" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          </div>
-              <div class="step-name">Choose a plan</div>
-            </div>
-            <div class="stepper-item active">
-              <div class="step-counter">3</div>
-              <div class="step-name">Check out</div>
-            </div>
-          </div>
-          `
-        );
+        const button = await jQuery(".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)");
 
-        await jQuery("#name").before(
-          `
-          <div class="form-inner-header">
-            Your personal Info
-          </div>
-          `
-        );
-
-        await jQuery("#email").after(
-          `
-          <div class="form-inner-header address">
-          Your address
-          </div>
-          `
-        );
+        if (jQuery("#checkout-btn").length == 0) {
+          await jQuery(".form-group.col-12.col-md-6:last").after(
+            `
+            <div class="form-group col-12 col-md-6">
+            <label style="opacity: 0">s</label>
+               <div id="checkout-btn"></div>
+            </div>
+            `
+          );
+        }
+        // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
+          await jQuery("#checkout-btn").html(button);
+        // }
 
         await jQuery(".ga-track-remove-product").html(
           `
@@ -116,6 +88,52 @@
           }
         });
 
+        if (
+          // !document.querySelector(".cart-note-div") &&
+          // cartLinkDiv.length != 0
+          // jQuery('.toggle').length > 0
+          // || jQuery(".no-data-card-empty").length > 0
+          // ||
+          (
+            jQuery(".toggle").length > 0) ||
+          jQuery(".no-data-card-empty").length > 0
+        ) {
+          clearInterval(productsCheck);
+        }
+      } else {
+        clearInterval(productsCheck);
+      }
+    }, 100);
+
+    const stepWapperCheck = setInterval(async function () {
+      if (jQuery(".form-inner-header").length == 0) {
+        await jQuery(".form-header").addClass("hide-mobile");
+        await jQuery(".form-header").html(
+          `
+          <div class="stepper-wrapper">
+            <div class="stepper-item completed">
+              <div class="step-counter"><svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.863647 3.19413L2.93246 5.26294L7.5 1" stroke="#0098DB" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              </div>
+              <div class="step-name">Enter ZIP code</div>
+            </div>
+            <div class="stepper-item completed">
+              <div class="step-counter">
+              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.863647 3.19413L2.93246 5.26294L7.5 1" stroke="#0098DB" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          </div>
+              <div class="step-name">Choose a plan</div>
+            </div>
+            <div class="stepper-item active">
+              <div class="step-counter">3</div>
+              <div class="step-name">Check out</div>
+            </div>
+          </div>
+          `
+        );
+
         await jQuery(
           ".page-wrap.row.nav-wrap.justify-content-between.fs-restrict-dead-clicks"
         ).after(
@@ -146,21 +164,36 @@
             `
         );
 
+        await jQuery("#name").before(
+          `
+          <div class="form-inner-header">
+            Your Personal Info
+          </div>
+          `
+        );
+
+        await jQuery("#email").after(
+          `
+          <div class="form-inner-header address">
+          Your Address
+          </div>
+          `
+        );
+
+        await jQuery(".form-message").html(
+          `
+          All fields are required.
+          `
+        );
+
         if (
-          // !document.querySelector(".cart-note-div") &&
-          // cartLinkDiv.length != 0
-          // jQuery('.toggle').length > 0
-          // || jQuery(".no-data-card-empty").length > 0
-          // ||
-           (jQuery('.stepper-wrapper').length > 0 
-           && jQuery('.toggle').length > 0) || jQuery(".no-data-card-empty").length > 0
+          jQuery(".stepper-wrapper").length > 0 ||
+          jQuery(".no-data-card-empty").length > 0
         ) {
-          console.log('INTERVAL CLEAR ???', jQuery('.toggle').length)
-          clearInterval(productsCheck);
-          
+          clearInterval(stepWapperCheck);
         }
       } else {
-        clearInterval(productsCheck);
+        clearInterval(stepWapperCheck);
       }
     }, 100);
 
@@ -254,6 +287,8 @@
     jQuery(".products-wrapper").remove();
     jQuery(".noproducts-wrapper").remove();
     jQuery(".form-header.row.m-0.hide-desktop").remove();
+    jQuery(".toggle").remove();
+    jQuery(".stepper-wrapper").remove();
   }
 
   history.pushState = (function (f) {
