@@ -827,6 +827,7 @@
               ) {
                 jQuery(link).find(".enroll-now").click();
 
+                console.log('TESTTTTT')
                 createTestPopup();
 
                 return;
@@ -1158,9 +1159,13 @@
           ".container-fluid.upsell-product-card--container"
         );
 
+        console.log('productList >>>', productList)
+
         document
           .querySelectorAll(".container-fluid.upsell-product-card--container")
           .forEach((eachProduct, i) => {
+            console.log('eachProduct >>>>>', eachProduct)
+            console.log('eachProduct index >>>>>', i)
             // IF duplicates add remove logic here (Change this)
             // const flexProduct = eachProduct.find(".flex-product");
             // flexProduct.remove();
@@ -1248,7 +1253,8 @@
 
             eachProduct.append(htmlContainerDiv);
           });
-
+        clearInterval(modalCheck);
+      } else {
         clearInterval(modalCheck);
       }
     }, 100);
