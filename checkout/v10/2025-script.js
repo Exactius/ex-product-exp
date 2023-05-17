@@ -12,16 +12,14 @@
     }
     jQuery("body").addClass("spz-2025");
 
-    console.log('CALL')
-
     const productsCheck = setInterval(async function () {
-      console.log('productsCheck >>>>')
       if (
         jQuery(".toggle").length == 0
       ) {
-        console.log('productsCheck Run >>>>>>')
         await jQuery(".cart-note-div").remove();
-        await jQuery(".card-title").text(`Your cart`);
+        await jQuery(".card-title").html(`<span>Your cart</span>`);
+      
+        await jQuery(".padding-30px-0-0").removeClass('padding-30px-0-0')
 
         const button = await jQuery(".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)");
 
@@ -102,7 +100,6 @@
             jQuery(".toggle").length > 0) ||
           jQuery(".no-data-card-empty").length > 0
         ) {
-          console.log('productsCheck End >>>>>')
           clearInterval(productsCheck);
         }
       } else {
@@ -111,9 +108,7 @@
     }, 100);
 
     const stepWapperCheck = setInterval(async function () {
-      console.log('stepWapperCheck >>>')
       if (jQuery(".form-inner-header").length == 0) {
-        console.log('stepWapperCheck Run >>>>>>')
         await jQuery(".form-header").addClass("hide-mobile");
         await jQuery(".form-header").html(
           `
@@ -197,7 +192,6 @@
           jQuery(".stepper-wrapper").length > 0 ||
           jQuery(".no-data-card-empty").length > 0
         ) {
-          console.log('stepWapperCheck End >>>>>>>>')
           clearInterval(stepWapperCheck);
         }
       } else {
@@ -206,10 +200,8 @@
     }, 100);
 
     const otherProductsCheck = setInterval(async function () {
-      console.log('otherProductsCheck >>>>>')
       const cartLinkDiv = await jQuery(".cart-link-div");
       if (cartLinkDiv.length == 2) {
-        console.log('otherProductsCheck  Run >>>')
         await jQuery(".ga-track-remove-product").html(
           `
           <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -284,7 +276,6 @@
           jQuery(".cart-other-link").html() ==
           `Upgrade to our bundles for more savings!`
         ) {
-          console.log('otherProductsCheck END >>>>>')
           clearInterval(otherProductsCheck);
         }
       } else {
@@ -323,20 +314,14 @@
   });
   window.addEventListener("locationchange", function () {
     url = location.href;
-    console.log('url 1 >>', url)
     urlCheck(url);
   });
 
-  console.log('location >>>', location)
-
   url = location.href;
-
-  console.log('url 2 >>', url)
   urlCheck(url);
 
   function urlCheck(url) {
     setTimeout(() => {
-      console.log('url >>>', url)
       if (url.includes("user/checkout?section=cart")) {
         createTest();
       } else {
