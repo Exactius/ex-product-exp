@@ -13,29 +13,27 @@
     jQuery("body").addClass("spz-2025");
 
     const productsCheck = setInterval(async function () {
-      if (
-        jQuery(".toggle").length == 0
-      ) {
+      if (jQuery(".toggle").length == 0) {
         await jQuery(".cart-note-div").remove();
         await jQuery(".card-title").html(`<span>Your cart</span>`);
-      
-        await jQuery(".padding-30px-0-0").removeClass('padding-30px-0-0')
 
-        const button = await jQuery(".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)");
+        await jQuery(".padding-30px-0-0").removeClass("padding-30px-0-0");
 
-        if (jQuery("#checkout-btn").length == 0) {
-          await jQuery(".form-group.col-12.col-md-6:last").after(
-            `
-            <div class="form-group col-12 col-md-6">
-            <label style="opacity: 0">s</label>
-               <div id="checkout-btn"></div>
-            </div>
-            `
-          );
-        }
-        // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
-          await jQuery("#checkout-btn").html(button);
+        // const button = await jQuery(".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)");
+
+        // if (jQuery("#checkout-btn").length == 0) {
+        //   await jQuery(".form-group.col-12.col-md-6:last").after(
+        //     `
+        //     <div class="form-group col-12 col-md-6">
+        //     <label style="opacity: 0">s</label>
+        //        <div id="checkout-btn"></div>
+        //     </div>
+        //     `
+        //   );
         // }
+        // // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
+        //   await jQuery("#checkout-btn").html(button);
+        // // }
 
         await jQuery(".ga-track-remove-product").html(
           `
@@ -91,19 +89,38 @@
         });
 
         if (
-          // !document.querySelector(".cart-note-div") &&
-          // cartLinkDiv.length != 0
-          // jQuery('.toggle').length > 0
-          // || jQuery(".no-data-card-empty").length > 0
-          // ||
-          (
-            jQuery(".toggle").length > 0) ||
+          jQuery(".toggle").length > 0 ||
           jQuery(".no-data-card-empty").length > 0
         ) {
           clearInterval(productsCheck);
         }
       } else {
         clearInterval(productsCheck);
+      }
+    }, 100);
+
+    const checkoutBtnCheck = setInterval(async function () {
+      if (jQuery("#checkout-btn").length == 0) {
+        const button = await jQuery(
+          ".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
+        );
+
+        await jQuery(".form-group.col-12.col-md-6:last").after(
+          `
+            <div class="form-group col-12 col-md-6">
+            <label style="opacity: 0">s</label>
+               <div id="checkout-btn"></div>
+            </div>
+            `
+        );
+        // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
+        await jQuery("#checkout-btn").html(button);
+        // }
+        if (jQuery("#checkout-btn").length > 0) {
+          clearInterval(checkoutBtnCheck);
+        }
+      } else {
+        clearInterval(checkoutBtnCheck);
       }
     }, 100);
 
@@ -279,7 +296,7 @@
           clearInterval(otherProductsCheck);
         }
       } else {
-        // clearInterval(otherProductsCheck);
+        clearInterval(otherProductsCheck);
       }
     }, 100);
   }
@@ -322,7 +339,10 @@
 
   function urlCheck(url) {
     setTimeout(() => {
-      if (url.includes("user/checkout?section=cart")) {
+      if (
+        url.includes("user/checkout?section=cart") ||
+        url.includes("user/checkout?section=etspayment")
+      ) {
         createTest();
       } else {
         removeTest();
