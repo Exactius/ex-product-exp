@@ -2,7 +2,7 @@
     display: none;
 }
 
-.spz-2025 .pad-desktop[_ngcontent-c7] {
+.spz-2025 .pad-desktop {
     padding-right: 0px;
 }
 .spz-2025 .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
@@ -14,12 +14,12 @@
     padding-right: 0px !important;
 }
 
-.spz-2025 .payment-box-offbill[_ngcontent-c8] .ets-box[_ngcontent-c8] .card-bg-cls[_ngcontent-c8] {
+.spz-2025 .payment-box-offbill .ets-box .card-bg-cls {
     width: 100%;
 }
 
-.spz-2025 .payment-box-offbill[_ngcontent-c8] .ets-box[_ngcontent-c8] .card-bg-cls[_ngcontent-c8] .card-title[_ngcontent-c8] { 
-    width: '100%';
+.spz-2025 .payment-box-offbill .ets-box .card-bg-cls .card-title span { 
+    width: 100% ;
     font-family: 'Roboto' !important;
     font-style: normal;
     font-weight: 700 !important;
@@ -33,26 +33,26 @@
     background: #F8FAFC;
 }
 
-.spz-2025 .register-section[_ngcontent-c7],
-.spz-2025 .padding-30px-0-0[_ngcontent-c7] {
+.spz-2025 .register-section,
+.spz-2025 .padding-30px-0-0 {
     padding: 0px !important; 
 }
 
-.spz-2025 .cart-body[_ngcontent-c8] {
-    padding: 25px;
+.spz-2025 .cart-body {
+    padding: 25px !important;
 }
 
-.spz-2025 .payment-box-offbill[_ngcontent-c8] .ets-box[_ngcontent-c8] {
-    padding: 0px;
+.spz-2025 .payment-box-offbill .ets-box {
+    padding: 0px !important;
 }
 
-.spz-2025 .payment-box[_ngcontent-c8] .m-font[_ngcontent-c8] {
+.spz-2025 .payment-box .m-font {
     font-family: 'Roboto' !important;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 140%;
-    color: #000000;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 140% !important;
+    color: #000000 !important;
 }
 
 .spz-2025 .select-payment-mobile {
@@ -62,9 +62,9 @@
     justify-content: space-between;
 }
 
-.spz-2025 .register-section[_ngcontent-c7] .right-form-box[_ngcontent-c7] .form-border[_ngcontent-c7] {
-    border: none;
-    box-shadow: none;
+.spz-2025 .register-section .right-form-box .form-border {
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .spz-2025 .px-4 {
@@ -89,26 +89,26 @@
     margin: 0px;
 }
 
-.spz-2025 .register-section[_ngcontent-c7] .right-form-box[_ngcontent-c7] .form-header[_ngcontent-c7] {
+.spz-2025 .register-section .right-form-box .form-header {
     margin-bottom: 32px !important;
     border-radius: 0px 0px 5px 5px;
     background: #0098DB;
     width: 100%;
     height: 67px;
 }
-.spz-2025 .register-section[_ngcontent-c7] .right-form-box[_ngcontent-c7] .form-header[_ngcontent-c7] img,
-.spz-2025 .register-section[_ngcontent-c7] .right-form-box[_ngcontent-c7] .form-header[_ngcontent-c7] span{
+.spz-2025 .register-section .right-form-box .form-header img,
+.spz-2025 .register-section .right-form-box .form-header span{
     display: none;
 }
 .spz-2025 .hide-desktop {
     display: none !important;
 }
 
-.spz-2025 .register-section[_ngcontent-c7] button[_ngcontent-c7], .register-section[_ngcontent-c7] input[_ngcontent-c7], .register-section[_ngcontent-c7] optgroup[_ngcontent-c7], .register-section[_ngcontent-c7] select[_ngcontent-c7], .register-section[_ngcontent-c7] textarea[_ngcontent-c7] {
-    height: 48px;
-    background: #FFFFFF;
-    border: 0.5px solid #CAD7E0;
-    border-radius: 5px;
+.spz-2025 .register-section button, .register-section input, .register-section optgroup, .register-section select, .register-section textarea {
+    height: 48px !important;
+    background: #FFFFFF !important;
+    border: 0.5px solid #CAD7E0 !important;
+    border-radius: 5px !important;
 }
 .spz-2025 .form-control:disabled, .form-control[readonly] {
     height: 48px;
@@ -116,11 +116,11 @@
     border: 0.5px solid #CAD7E0;
     border-radius: 5px;
 }
-.spz-2025 .checkout-bg[_ngcontent-c9] {
+.spz-2025 .checkout-bg {
     background-color: #fff !important;
     color: #CAD7E0;
 }
-.spz-2025 .form-group[_ngcontent-c7] .ng-select .ng-control {
+.spz-2025 .form-group .ng-select .ng-control {
     height: 48px;
     background: #FFFFFF;
     border: 0.5px solid #CAD7E0;
@@ -130,7 +130,7 @@
     background-color: #fff !important;
     color: #CAD7E0;
 }
-.spz-2025 .register-section[_ngcontent-c7] hr[_ngcontent-c7] {
+.spz-2025 .register-section hr {
     display: none;
 }
 
@@ -149,13 +149,13 @@
 #email div:nth-child(2)  {
     display: none;
 }
-.spz-2025 .register-section[_ngcontent-c7] .right-form-box[_ngcontent-c7] .form-message[_ngcontent-c7] {
-    font-family: 'Roboto';
-    font-style: italic;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    color: #000000;
+.spz-2025 .register-section .right-form-box .form-message {
+    font-family: 'Roboto' !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 16px !important;
+    color: #000000 !important;
 }
 
 .spz-2025 .card-body-box .media-icon {
@@ -163,7 +163,7 @@
     align-items: start;
     justify-content: center;
 }
-.spz-2025 .payment-box[_ngcontent-c8] .product-name[_ngcontent-c8] {
+.spz-2025 .payment-box .product-name {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -171,7 +171,7 @@
     line-height: 22px;
     color: #000;
 }
-.spz-2025 .payment-box[_ngcontent-c8] .product-desc[_ngcontent-c8] {
+.spz-2025 .payment-box .product-desc {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -205,7 +205,7 @@
     line-height: 140%;
     color: #000000;
 }
-.spz-2025 .tax-div[_ngcontent-c8] {
+.spz-2025 .tax-div {
     background: #E5EEF6;
     border: 1px solid #DDE8F0;
     border-radius: 5px 5px 0px 0px;
@@ -215,7 +215,7 @@
     font-size: 14px;
     line-height: 140%;
 }
-.spz-2025 .payment-box[_ngcontent-c8] .normal-font[_ngcontent-c8] {
+.spz-2025 .payment-box .normal-font {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -223,9 +223,9 @@
     line-height: 140%;
 }
 .spz-2025 .sub-total-box {
-    background: #0098DB;
-    border: 1px solid #DDE8F0;
-    border-radius: 5px;
+    background: #0098DB !important;
+    border: 1px solid #DDE8F0 !important;
+    border-radius: 5px !important;
 }
 .spz-2025 .product-total-name {
     font-family: 'Roboto';
@@ -252,34 +252,34 @@
     line-height: 140%;
     text-align: right;
 }
-.spz-2025 .cart-other-link[_ngcontent-c8] {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 140%;
-    color: #000000;
+.spz-2025 .cart-other-link {
+    font-family: 'Roboto' !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 140% !important;
+    color: #000000 !important;
 }
 
 .spz-2025 .cart-link-div {
     margin-bottom: 0px;
 }
 .spz-2025 .cart-link-div .PR-0.text-align-center {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
 }
 .spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15 {
-    text-align: left;
-    padding-left: 16px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 120%;
-    color: #000000;
-    width: 60%;
+    text-align: left !important;
+    padding-left: 16px !important;
+    font-family: 'Roboto' !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    line-height: 120% !important;
+    color: #000000 !important;
+    width: 60% !important;
 }
 .spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13 {
     font-family: 'Roboto';
@@ -310,7 +310,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px 24px;
+    padding: 12px;
     background: #FFFFFF;
     border: 1px solid #005695;
     border-radius: 5px;
@@ -322,13 +322,13 @@
     color: #005695;
     text-decoration: none !important;
 }
-.spz-2025 .pad-btn-checkout[_ngcontent-c7] {
+.spz-2025 .pad-btn-checkout {
     width: 100%;
     justify-content: end !important;
     padding: 0px !important;
 }
 
-.spz-2025 .pad-btn-checkout[_ngcontent-c7] button {
+.spz-2025 .pad-btn-checkout button {
     background: #B83436 !important;
     border-radius: 5px !important;
     font-family: 'Roboto';
@@ -360,7 +360,7 @@
     max-width: 100% !important;
 }
 @media (max-width: 767px) {
-    .spz-2025 .pad-btn-checkout[_ngcontent-c7] button {
+    .spz-2025 .pad-btn-checkout button {
         width: 100% !important;
         margin: 0 20px !important;
     }
@@ -370,7 +370,7 @@
     .spz-2025 .select-payment-mobile  {
         justify-content: center !important;
     }
-    .spz-2025 .select-payment-mobile[_ngcontent-c8] form[_ngcontent-c8] {
+    .spz-2025 .select-payment-mobile form {
         align-items: center;
         justify-content: center;
         display: flex;
@@ -397,7 +397,7 @@
     .spz-2025 .cart-link-div .col-12.mar-15-0.flex-align-center {
         align-items: start;
     }
-    .spz-2025  .mobile-view[_ngcontent-c8] {
+    .spz-2025  .mobile-view {
         display: none;
     }
     .spz-2025 .card-body-box .card-body .col-3.col-md-3.col-xl-4.row.flex-center-cls .col-7.desktop-only {
@@ -415,7 +415,7 @@
 .spz-2025 .noteTextEnroll p {
     display: none;
 }
-.spz-2025 .payment-option[_ngcontent-c8] .col-6.padd0 {
+.spz-2025 .payment-option .col-6.padd0 {
     display: none;
 }
 .spz-2025 .cart-details-main {
@@ -428,7 +428,7 @@
         width: 30%;
     }
 
-    .spz-2025 .form-header[_ngcontent-c7] {
+    .spz-2025 .form-header {
         margin-bottom: 32px !important;
         border-radius: 0px 0px 5px 5px;
         background: #0098DB;
@@ -439,11 +439,11 @@
         top: 100px;
         z-index: 100;
     }
-    .spz-2025 .form-header[_ngcontent-c7] img,
-    .spz-2025 .form-header[_ngcontent-c7] span{
+    .spz-2025 .form-header img,
+    .spz-2025 .form-header span{
         display: none;
     }
-    .spz-2025 .form-message[_ngcontent-c7] {
+    .spz-2025 .form-message {
         font-family: 'Roboto';
         font-style: italic;
         font-weight: 500;

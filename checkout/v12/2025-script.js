@@ -13,27 +13,27 @@
     jQuery("body").addClass("spz-2025");
 
     const productsCheck = setInterval(async function () {
-      if (
-        jQuery(".toggle").length == 0
-      ) {
+      if (jQuery(".toggle").length == 0) {
         await jQuery(".cart-note-div").remove();
-        await jQuery(".card-title").text(`Your cart`);
+        await jQuery(".card-title").html(`<span>Your cart</span>`);
 
-        const button = await jQuery(".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)");
+        await jQuery(".padding-30px-0-0").removeClass("padding-30px-0-0");
 
-        if (jQuery("#checkout-btn").length == 0) {
-          await jQuery(".form-group.col-12.col-md-6:last").after(
-            `
-            <div class="form-group col-12 col-md-6">
-            <label style="opacity: 0">s</label>
-               <div id="checkout-btn"></div>
-            </div>
-            `
-          );
-        }
-        // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
-          await jQuery("#checkout-btn").html(button);
+        // const button = await jQuery(".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)");
+
+        // if (jQuery("#checkout-btn").length == 0) {
+        //   await jQuery(".form-group.col-12.col-md-6:last").after(
+        //     `
+        //     <div class="form-group col-12 col-md-6">
+        //     <label style="opacity: 0">s</label>
+        //        <div id="checkout-btn"></div>
+        //     </div>
+        //     `
+        //   );
         // }
+        // // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
+        //   await jQuery("#checkout-btn").html(button);
+        // // }
 
         await jQuery(".ga-track-remove-product").html(
           `
@@ -89,19 +89,40 @@
         });
 
         if (
-          // !document.querySelector(".cart-note-div") &&
-          // cartLinkDiv.length != 0
-          // jQuery('.toggle').length > 0
-          // || jQuery(".no-data-card-empty").length > 0
-          // ||
-          (
-            jQuery(".toggle").length > 0) ||
+          jQuery(".toggle").length > 0 ||
           jQuery(".no-data-card-empty").length > 0
         ) {
           clearInterval(productsCheck);
         }
       } else {
         clearInterval(productsCheck);
+      }
+    }, 100);
+
+    const checkoutBtnCheck = setInterval(async function () {
+      const button = await jQuery(
+        ".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
+      );
+      if (jQuery("#checkout-btn").length == 0 && button.length != 0) {
+
+        await jQuery(".form-group.col-12.col-md-6:last").after(
+          `
+            <div class="form-group col-12 col-md-6">
+            <label style="opacity: 0">s</label>
+               <div id="checkout-btn"></div>
+            </div>
+            `
+        );
+        // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
+        await jQuery("#checkout-btn").html(button);
+        // }
+        if (jQuery("#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)").length != 0) {
+          clearInterval(checkoutBtnCheck);
+        }
+      } else {
+        if(jQuery("#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)").length != 0 || jQuery(".no-data-card-empty").length > 0) {
+          clearInterval(checkoutBtnCheck);
+        }
       }
     }, 100);
 
@@ -225,26 +246,43 @@
         ).removeClass("col-7");
         // await jQuery('.cart-link-div .col-12.mar-15-0.flex-align-center .col-7.PR-0.text-align-center').addClass('col-8');
 
-        await jQuery(
-          ".spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
-        ).html(
-          jQuery(
-            ".spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
-          )
-            .html()
-            .replaceAll("Add", "")
-        );
+        // const title = await jQuery(
+        //   ".cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
+        // )
+        //   .html()
+        //   .replaceAll("Add", "")
 
-        await jQuery(
+
+            document.querySelectorAll(
+              ".spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
+            ).forEach((i) => {
+              i.innerHTML = i.innerHTML.replace("Add", "")
+            })
+          
+        // await jQuery(
+        //   ".cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
+        // ).html(
+        //   title
+        // );
+
+        // const amo = await jQuery(
+        //   ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
+        // )
+        //   .html()
+        //   .replace("For only ", "For only<br/>")
+        //   .replaceAll("Per Month", "/mo")
+
+        document.querySelectorAll(
           ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
-        ).html(
-          jQuery(
-            ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
-          )
-            .html()
-            .replace("For only ", "For only<br/>")
-            .replaceAll("Per Month", "/mo")
-        );
+        ).forEach((i) => {
+          i.innerHTML = i.innerHTML.replace("For only ", "For only<br/>").replace("Per Month", "/mo")
+        })
+
+        // await jQuery(
+        //   ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
+        // ).html(
+        //   amo
+        // );
 
         await jQuery(".pad-btn-checkout button").addClass("col-lg-5");
 
@@ -320,7 +358,10 @@
 
   function urlCheck(url) {
     setTimeout(() => {
-      if (url.includes("user/checkout?section=cart")) {
+      if (
+        url.includes("user/checkout?section=cart") ||
+        url.includes("user/checkout?section=etspayment")
+      ) {
         createTest();
       } else {
         removeTest();
