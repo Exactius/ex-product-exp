@@ -104,7 +104,6 @@
         ".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
       );
       if (jQuery("#checkout-btn").length == 0 && button.length != 0) {
-
         await jQuery(".form-group.col-12.col-md-6:last").after(
           `
             <div class="form-group col-12 col-md-6">
@@ -116,11 +115,20 @@
         // if(jQuery('#checkout-btn .enroll-now.skiptranslate').length == 0) {
         await jQuery("#checkout-btn").html(button);
         // }
-        if (jQuery("#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)").length != 0) {
+        if (
+          jQuery(
+            "#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
+          ).length != 0
+        ) {
           clearInterval(checkoutBtnCheck);
         }
       } else {
-        if(jQuery("#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)").length != 0 || jQuery(".no-data-card-empty").length > 0) {
+        if (
+          jQuery(
+            "#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
+          ).length != 0 ||
+          jQuery(".no-data-card-empty").length > 0
+        ) {
           clearInterval(checkoutBtnCheck);
         }
       }
@@ -252,13 +260,14 @@
         //   .html()
         //   .replaceAll("Add", "")
 
+        document
+          .querySelectorAll(
+            ".spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
+          )
+          .forEach((i) => {
+            i.innerHTML = i.innerHTML.replace("Add", "");
+          });
 
-            document.querySelectorAll(
-              ".spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
-            ).forEach((i) => {
-              i.innerHTML = i.innerHTML.replace("Add", "")
-            })
-          
         // await jQuery(
         //   ".cart-link-div .PR-0.text-align-center .margin-0.font-size-15"
         // ).html(
@@ -272,11 +281,15 @@
         //   .replace("For only ", "For only<br/>")
         //   .replaceAll("Per Month", "/mo")
 
-        document.querySelectorAll(
-          ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
-        ).forEach((i) => {
-          i.innerHTML = i.innerHTML.replace("For only ", "For only<br/>").replace("Per Month", "/mo")
-        })
+        document
+          .querySelectorAll(
+            ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
+          )
+          .forEach((i) => {
+            i.innerHTML = i.innerHTML
+              .replace("For only ", "For only<br/>")
+              .replace("Per Month", "/mo");
+          });
 
         // await jQuery(
         //   ".spz-2025 .cart-link-div .PR-0.text-align-center .notranslate.margin-0.font-size-13"
