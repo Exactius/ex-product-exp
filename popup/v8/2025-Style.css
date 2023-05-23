@@ -213,6 +213,10 @@ body.spz-2025 .product-list-area.fixed-nav-product {
     .product-cart-info {
     padding: 21px 20px 24px;
   }
+
+  .hide-on-mobile {
+    display: none ;
+  }
 }
 @media (min-width: 767.98px) and (max-width: 991px) {
   .spz-2025
@@ -1139,6 +1143,7 @@ body.spz-2025 .product-list-area.fixed-nav-product {
 
   .Upgrade {
     flex: 1;
+    padding: 12px 0px;
   }
 }
 

@@ -1133,7 +1133,7 @@
         productContainer.find('.product-promotion').html(`
           <div class="modal-popup-header">
           <h1>Unlock up to <span>17%</span> savings!</h1>
-          <p>Don’t lose this deal. Enjoy more protection with <br /> the money-saving bundles available for this plan!</p>
+          <p>Don’t lose this deal. Enjoy more protection with <br class="hide-on-mobile" /> the money-saving bundles available for this plan!</p>
           </div>
         `);
 
