@@ -51,7 +51,7 @@ body {
 }
 
 .hero-section .hero-left .heading {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
   font-size: 46px;
@@ -62,7 +62,7 @@ body {
 }
 
 .hero-section .hero-left .description {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -73,7 +73,7 @@ body {
 }
 
 .hero-section .hero-left .donate-btn button {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -108,7 +108,7 @@ body {
 }
 
 .hero-section .hero-left .features-container .feature p {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -124,7 +124,7 @@ body {
 }
 
 .hero-section .hero-banner {
-  background-image: url('https://uploads-ssl.webflow.com/6442b64fa88b9997def3ade1/644681ed1506c8bd66e41570_hp-hero-bk.JPG');
+  background-image: url("https://uploads-ssl.webflow.com/6442b64fa88b9997def3ade1/644681ed1506c8bd66e41570_hp-hero-bk.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -278,4 +278,8 @@ body {
     min-width: 350px !important;
     margin: 0 auto;
   }
+}
+
+.main-section-hero.wf-section {
+  visibility: hidden;
 }
