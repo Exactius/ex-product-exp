@@ -197,23 +197,53 @@ function checkElementToApplyTest() {
   const homePageCheck = setInterval(async function () {
     const heroSection = document.getElementsByClassName("nav-container");
 
-    console.log("LOG 1", heroSection);
-
     const heroSectionAppended2 =
       document.getElementsByClassName("main-section-hero");
 
     if (heroSection.length == 1) {
-      console.log("Creating Test");
       createTest();
     }
 
     if (heroSectionAppended2.length === 0) {
-      console.log("Clearing Test");
       clearInterval(homePageCheck);
     }
   }, 100);
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  checkElementToApplyTest();
+history.pushState = (function (f) {
+  return function pushState() {
+    const ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event("pushstate"));
+    window.dispatchEvent(new Event("locationchange"));
+    return ret;
+  };
+})(history.pushState);
+
+history.replaceState = (function (f) {
+  return function replaceState() {
+    const ret = f.apply(this, arguments);
+    window.dispatchEvent(new Event("replacestate"));
+    window.dispatchEvent(new Event("locationchange"));
+    return ret;
+  };
+})(history.replaceState);
+
+window.addEventListener("popstate", function () {
+  window.dispatchEvent(new Event("locationchange"));
 });
+
+window.addEventListener("locationchange", function () {
+  url = location.href;
+  urlCheck(url);
+});
+
+url = location.href;
+urlCheck(url);
+
+function urlCheck(url) {
+  setTimeout(() => {
+    if (url.includes("/") || url.includes("")) {
+      checkElementToApplyTest();
+    }
+  }, 700);
+}
