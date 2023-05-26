@@ -178,7 +178,7 @@ function scrolltoId(id) {
   const access = document.getElementById(id);
   window.scrollTo({
     top: access?.offsetTop - 110,
-    behavior: "smooth",
+    behavior: "smooth"
   });
 }
 
