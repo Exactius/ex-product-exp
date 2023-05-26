@@ -197,8 +197,14 @@ function checkElementToApplyTest() {
   const homePageCheck = setInterval(async function () {
     const heroSection = document.getElementsByClassName("nav-container");
 
+    const heroSectionAppended2 =
+      document.getElementsByClassName("main-section-hero");
+
     if (heroSection.length == 1) {
       createTest();
+    }
+
+    if (heroSectionAppended2.length === 0) {
       clearInterval(homePageCheck);
     }
   }, 100);
