@@ -172,6 +172,17 @@ function createTest() {
     </p>
     <a data-formid="30660" href="#" class="button vivid-yellow donation-for-mobile w-button">Donate Today</a>
   `;
+
+  const donateButton = document.querySelector("#donation-btn");
+  const donate = document.querySelector(".donate");
+
+  donateButton.addEventListener("click", () => {
+    scrolltoId("fr-placed-form-container-30660");
+  });
+
+  donate.addEventListener("click", () => {
+    scrolltoId("fr-placed-form-container-30660");
+  });
 }
 
 function scrolltoId(id) {
@@ -184,28 +195,15 @@ function scrolltoId(id) {
 
 function checkElementToApplyTest() {
   const homePageCheck = setInterval(async function () {
-    const cartLinkDiv = await jQuery(".main-section-hero.wf-section");
+    const heroSection = document.getElementsByClassName("nav-container");
 
-    if (cartLinkDiv.length == 1) {
+    if (heroSection.length == 1) {
       createTest();
-      if (jQuery(".donation-btn").html() == `DONATE in 2 minutes`) {
-        clearInterval(homePageCheck);
-      }
+      clearInterval(homePageCheck);
     }
   }, 100);
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
   checkElementToApplyTest();
-
-  const donateButton = document.querySelector("#donation-btn");
-  const donate = document.querySelector(".donate");
-
-  donateButton.addEventListener("click", () => {
-    scrolltoId("fr-placed-form-container-30660");
-  });
-
-  donate.addEventListener("click", () => {
-    scrolltoId("fr-placed-form-container-30660");
-  });
 });
