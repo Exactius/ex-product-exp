@@ -347,7 +347,12 @@ body {
 }
 
 @media only screen and (max-width: 769px) {
-  .fr_funraise.fr_form {
-    min-height: 629px !important;
+  .html-embed-3.w-embed {
+    height: 629px !important;
+    overflow: hidden;
+  }
+
+  #General-Donatation.main-section.wf-section .section-padding-default {
+    padding-top: 20px !important;
   }
 }
