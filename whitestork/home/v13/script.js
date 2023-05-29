@@ -80,12 +80,12 @@ function createTest() {
 <div class="as_seen_on">
   <img
     class="desktop_only"
-    src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/as_seen_on.png"
+    src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/as_seen_on.png"
     alt="as_seen_on"
   />
   <img
     class="mobile_only"
-    src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/as_seen_on_white.png"
+    src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/as_seen_on_white.png"
     alt="as_seen_on"
   />
 </div>
@@ -96,20 +96,20 @@ function createTest() {
   >
     <img
       class="desktop_only"
-      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/fox_news.png"
+      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/fox_news.png"
       alt="fox_news"
     />
     <img
       class="mobile_only"
-      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/fox_news_white.png"
+      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/fox_news_white.png"
       alt="fox_news"
     />
   </a>
 </div>
 <div class="cnn">
   <a href="https://www.youtube.com/watch?v=kzq9BhXzJjY" target="_blank">
-    <img class="desktop_only" src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/cnn.png" alt="cnn" />
-    <img class="mobile_only" src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/cnn_white.png" alt="cnn" />
+    <img class="desktop_only" src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/cnn.png" alt="cnn" />
+    <img class="mobile_only" src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/cnn_white.png" alt="cnn" />
   </a>
 </div>
 <div class="the_boston_blobe">
@@ -119,12 +119,12 @@ function createTest() {
   >
     <img
       class="desktop_only"
-      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/the_boston_blobe.png"
+      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/the_boston_blobe.png"
       alt="the_boston_blobe"
     />
     <img
       class="mobile_only"
-      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/the_boston_blobe_white.png"
+      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/the_boston_blobe_white.png"
       alt="the_boston_blobe"
     />
   </a>
@@ -136,12 +136,12 @@ function createTest() {
   >
     <img
       class="desktop_only"
-      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/esquire.png"
+      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/esquire.png"
       alt="esquire"
     />
     <img
       class="mobile_only"
-      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/v2/esquire_white.png"
+      src="https://cdn.jsdelivr.net/gh/Exactius/ex-product-exp/whitestork/assets/home/2x/esquire_white.png"
       alt="esquire"
     />
   </a>
