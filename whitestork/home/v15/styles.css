@@ -1,0 +1,364 @@
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d2954;
+}
+
+.hero {
+  position: relative;
+}
+.main-hero {
+  z-index: 10;
+  position: relative;
+  max-width: 1170px;
+  margin: 0 auto;
+  background: transparent;
+  min-height: 636px;
+}
+
+.hero-section.top-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-section.top-section .hero-left {
+  opacity: 0;
+}
+
+.main-hero .hero-right .hero-banner {
+  opacity: 0;
+}
+
+.hero-section .hero-content {
+  padding: 70px 40px 70px 0;
+  max-width: 100%;
+}
+
+.hero-section .hero-left,
+.hero-section .hero-right {
+  width: 50%;
+  height: auto;
+}
+
+.hero-section .hero-left .heading {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 116%;
+  color: #ffffff;
+  margin: 0px;
+  margin-bottom: 18px;
+}
+
+.hero-section .hero-left .description {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: #ffffff;
+  margin: 0px;
+  margin-bottom: 34px;
+}
+
+.hero-section .hero-left .donate-btn button {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 154%;
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+  color: #002a57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  height: 71px;
+  background: #ffd500;
+  border-radius: 4.51539px;
+  margin-bottom: 64px;
+}
+
+.hero-section .hero-left .features-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 60px;
+}
+
+.hero-section .hero-left .features-container .feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 60px; */
+}
+
+.hero-section .hero-left .features-container .feature p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 154%;
+  text-align: center;
+  color: #ffffff;
+  margin: 0px;
+}
+
+.hero-section .hero-left .features-container .feature .title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.hero-section .hero-banner {
+  background-image: url("https://uploads-ssl.webflow.com/6442b64fa88b9997def3ade1/644681ed1506c8bd66e41570_hp-hero-bk.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: 636px;
+}
+
+.partners-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+  row-gap: 14px;
+  column-gap: 14px;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.partners-section .mobile_only {
+  display: none;
+}
+
+.donate a {
+  text-decoration: none;
+}
+
+/*  */
+.as_seen_on img.desktop_only {
+  max-width: 148px !important;
+  width: 100%;
+  height: auto;
+}
+
+.as_seen_on img.mobile_only {
+  max-width: 137px !important;
+  width: 100%;
+  height: auto;
+}
+/*  */
+
+/*  */
+.fox_news img.desktop_only {
+  max-width: 64px !important;
+  width: 100%;
+  height: auto;
+}
+.fox_news img.mobile_only {
+  max-width: 53px !important;
+  width: 100%;
+  height: auto;
+}
+/*  */
+
+/*  CNN */
+.cnn img.desktop_only {
+  max-width: 92px !important;
+  width: 100%;
+  height: auto;
+}
+.cnn img.mobile_only {
+  max-width: 67px !important;
+  width: 100%;
+  height: auto;
+}
+/*  */
+
+/*  BOSTON */
+.the_boston_blobe img.desktop_only {
+  max-width: 278px !important;
+  width: 100%;
+  height: auto;
+}
+.the_boston_blobe img.mobile_only {
+  max-width: 260px !important;
+  width: 100%;
+  height: auto;
+}
+/*  */
+
+/*  ESQUOIRE */
+.esquire img.desktop_only {
+  max-width: 246px !important;
+  width: 100%;
+  height: auto;
+}
+.esquire img.mobile_only {
+  max-width: 327px !important;
+  width: 100%;
+  height: auto;
+}
+/*  */
+
+@media only screen and (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column !important;
+  }
+
+  .hero-section .hero-left,
+  .hero-section .hero-right {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-section .hero-left .heading {
+    font-size: 38px;
+  }
+
+  .hero-section .hero-left .description {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .hero-section .hero-left .donate-btn button {
+    font-size: 14px;
+    height: 61px;
+    margin-bottom: 36px;
+  }
+
+  .hero-section .hero-content {
+    padding: 36px 24px;
+  }
+
+  .hero-section .hero-left .heading br {
+    display: none;
+  }
+  .hero-section .hero-left .features-container {
+    margin-right: 0px;
+    justify-content: start;
+  }
+
+  .hero-section .hero-left .features-container .feature p {
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .hero-section .hero-left .features-container .feature .title {
+    font-size: 22px;
+  }
+
+  .hero-section .hero-left .features-container .feature {
+    margin-right: 30px;
+    justify-content: start;
+  }
+
+  .hero-section .hero-banner {
+    min-height: 320px;
+  }
+
+  .partners-section_container {
+    background-color: #0d2954;
+  }
+
+  .partners-section {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 24px;
+    justify-items: center;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: 20px;
+    min-width: 300px;
+  }
+
+  .partners-section .desktop_only {
+    display: none;
+  }
+
+  .partners-section .mobile_only {
+    display: block;
+  }
+
+  .as_seen_on {
+    grid-column: 1 / span 7;
+    order: 1;
+  }
+
+  .the_boston_blobe {
+    grid-column: 1 / span 5;
+    order: 2;
+    justify-self: start;
+  }
+
+  .fox_news {
+    grid-column: 6 / span 2;
+    order: 3;
+    justify-self: end;
+  }
+
+  .cnn {
+    grid-column: 1 / span 2;
+    order: 4;
+  }
+
+  .esquire {
+    grid-column: 3 / span 5;
+    order: 5;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .donation-for-mobile {
+    display: none !important;
+  }
+
+  .div-block-22 {
+    display: block !important;
+  }
+
+  #fr-placed-form-container-30660 {
+    max-width: 100% !important;
+  }
+
+  .fr_funraise.fr_form {
+    min-width: 350px !important;
+    min-height: 629px !important;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .fr_funraise.fr_form {
+    min-height: 629px !important;
+    min-width: 350px !important;
+  }
+
+  .html-embed-3.w-embed {
+    height: 629px !important;
+    overflow: hidden;
+  }
+
+  #General-Donatation .section-padding-default {
+    padding-bottom: 60px !important;
+  }
+}
