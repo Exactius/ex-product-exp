@@ -52,7 +52,7 @@ function createTest() {
               wounded Ukrainian soldiers and civilians.
             </p>
             <div class="donate-btn">
-              <button id="donation-btn">DONATE in 2 minutes</button>
+              <a id="donation-btn">DONATE in 2 minutes</a>
             </div>
             <div class="features-container">
               <div class="feature">
@@ -171,6 +171,14 @@ function createTest() {
       Operation White Stork has been on the ground since Day 4 of the war. We need your help now to keep going. Our US veteran-led team has delivered 30,532 IFAKs since the start of the war. No aid depots, no middlemen, no BS. We need your help to keep going.
     </p>
     <a data-formid="30660" href="#" class="button vivid-yellow donation-for-mobile w-button">Donate Today</a>
+  `;
+
+  const textT = document.querySelector(".div-block-5 p.text-medium");
+  textT.innerHTML = `
+    Individual first aid kits (IFAKS) contain tourniquets, bandages, and chest seals that could be the difference between life and death for a wounded Ukrainian soldier or civilian.&nbsp;
+    <br>
+    <br>
+    Operation White Stork’s US veteran-led team has been on the ground since Day 4 of the war and has delivered over 30,532 IFAKs so far. No aid depots, no middlemen. No BS. We need your help now to keep going.
   `;
 
   const donateButton = document.querySelector("#donation-btn");
