@@ -16,7 +16,7 @@ function createTest() {
           wounded Ukrainian soldiers and civilians.
         </p>
         <div class="donate-btn">
-          <button>DONATE in 2 minutes</button>
+          <a>DONATE in 2 minutes</a>
         </div>
         <div class="features-container">
           <div class="feature">
@@ -179,6 +179,9 @@ function createTest() {
     <br>
     <br>
     Operation White Stork’s US veteran-led team has been on the ground since Day 4 of the war and has delivered over 30,532 IFAKs so far. No aid depots, no middlemen. No BS. We need your help now to keep going.
+    <br>
+    <br>
+    All donations are <strong>tax-deductible.</strong>
   `;
 
   const donateButton = document.querySelector("#donation-btn");
