@@ -814,3 +814,18 @@
     padding-top: 226px;
   }
 }
+
+/* .col-12.flex-center-cls.pad-btn-checkout {
+  display: none !important;
+} */
+
+.register-section div[role="combobox"] {
+  display: none;
+}
+
+.register-section .ng-select.ng-select-single .ng-select-container {
+  height: 46px !important;
+  background: #fff;
+  border: 0.5px solid #cad7e0 !important;
+  color: #cad7e0 !important;
+}

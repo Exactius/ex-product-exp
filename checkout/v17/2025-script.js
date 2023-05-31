@@ -27,7 +27,7 @@
           `
         );
 
-        await jQuery(".pad-btn-checkout button").addClass("col-lg-5");
+        // await jQuery(".pad-btn-checkout button").addClass("col-lg-5");
 
         await jQuery(".payment-option").after(
           `
@@ -76,10 +76,8 @@
     }, 100);
 
     const checkoutBtnCheck = setInterval(async function () {
-      const button = await jQuery(
-        ".enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
-      );
-      if (jQuery("#checkout-btn").length == 0 && button.length != 0) {
+      const button = await jQuery(".flex-center-cls.pad-btn-checkout");
+      if (button.length != 0) {
         await jQuery(".form-group.col-12.col-md-6:last").after(
           `
             <div class="form-group col-12 col-md-6">
@@ -92,17 +90,14 @@
         await jQuery("#checkout-btn").html(button);
         // }
         if (
-          jQuery(
-            "#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
-          ).length != 0
+          jQuery("#checkout-btn .flex-center-cls.pad-btn-checkout").length != 0
         ) {
           clearInterval(checkoutBtnCheck);
         }
       } else {
         if (
-          jQuery(
-            "#checkout-btn .enroll-now.skiptranslate:not(.ga-track-upgrade-cart)"
-          ).length != 0 ||
+          jQuery("#checkout-btn .flex-center-cls.pad-btn-checkout").length !=
+            0 ||
           jQuery(".no-data-card-empty").length > 0
         ) {
           clearInterval(checkoutBtnCheck);
@@ -274,7 +269,7 @@
         //   amo
         // );
 
-        await jQuery(".pad-btn-checkout button").addClass("col-lg-5");
+        // await jQuery(".pad-btn-checkout button").addClass("col-lg-5");
 
         const cardListComponent =
           document.getElementsByClassName("cart-list")[0];
