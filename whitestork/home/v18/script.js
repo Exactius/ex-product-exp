@@ -16,7 +16,7 @@ function createTest() {
           wounded Ukrainian soldiers and civilians.
         </p>
         <div class="donate-btn">
-          <button>DONATE in 2 minutes</button>
+          <a>DONATE in 2 minutes</a>
         </div>
         <div class="features-container">
           <div class="feature">
@@ -52,7 +52,7 @@ function createTest() {
               wounded Ukrainian soldiers and civilians.
             </p>
             <div class="donate-btn">
-              <button id="donation-btn">DONATE in 2 minutes</button>
+              <a id="donation-btn">DONATE in 2 minutes</a>
             </div>
             <div class="features-container">
               <div class="feature">
