@@ -89,7 +89,7 @@
 
 .spz-2025 .payment-box-offbill .ets-box .card-bg-cls .card-title span {
   width: 100%;
-  font-family: 'Roboto' !important;
+  font-family: "Roboto" !important;
   font-style: normal;
   font-weight: 700 !important;
   font-size: 24px !important;
@@ -116,7 +116,7 @@
 }
 
 .spz-2025 .payment-box .m-font {
-  font-family: 'Roboto' !important;
+  font-family: "Roboto" !important;
   font-style: normal !important;
   font-weight: 400 !important;
   font-size: 16px !important;
@@ -278,7 +278,7 @@
 }
 
 .spz-2025 .form-inner-header {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -293,7 +293,7 @@
   display: none;
 }
 .spz-2025 .register-section .right-form-box .form-message {
-  font-family: 'Roboto' !important;
+  font-family: "Roboto" !important;
   font-style: italic !important;
   font-weight: 500 !important;
   font-size: 14px !important;
@@ -307,7 +307,7 @@
   justify-content: center;
 }
 .spz-2025 .payment-box .product-name {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -315,7 +315,7 @@
   color: #000;
 }
 .spz-2025 .payment-box .product-desc {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -329,6 +329,7 @@
   flex-direction: column-reverse;
   justify-content: space-between !important;
   align-items: end !important;
+  min-height: 60px;
 }
 .spz-2025
   .card-body-box
@@ -352,28 +353,28 @@
   .card-body-box
   .card-body
   .col-12.col-md-12.col-xl-5.p-none.offbill-price-cls.PR-10 {
-  display: flex !important;
-  justify-content: end !important;
-  align-items: self-start !important;
-  font-family: 'Roboto' !important;
-  font-style: normal !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
-  line-height: 140% !important;
-  color: #000000 !important;
+  display: flex;
+  justify-content: end;
+  align-items: self-start;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  color: #000000;
 }
 .spz-2025 .tax-div {
   background: #e5eef6;
   border: 1px solid #dde8f0;
   border-radius: 5px 5px 0px 0px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
 }
 .spz-2025 .payment-box .normal-font {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -385,7 +386,7 @@
   border-radius: 5px !important;
 }
 .spz-2025 .product-total-name {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
@@ -395,7 +396,7 @@
 .spz-2025
   .sub-total-box
   .col-12.col-md-12.col-xl-5.text-right.font-16.align-subtotal.PR-5 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -406,7 +407,7 @@
 .spz-2025
   .sub-total-box
   .col-12.col-md-12.col-xl-7.text-right.value-subtotal.PR-7 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -414,7 +415,7 @@
   text-align: right;
 }
 .spz-2025 .cart-other-link {
-  font-family: 'Roboto' !important;
+  font-family: "Roboto" !important;
   font-style: normal !important;
   font-weight: 500 !important;
   font-size: 14px !important;
@@ -434,7 +435,7 @@
 .spz-2025 .cart-link-div .PR-0.text-align-center .margin-0.font-size-15 {
   text-align: left !important;
   padding-left: 16px !important;
-  font-family: 'Roboto' !important;
+  font-family: "Roboto" !important;
   font-style: normal !important;
   font-weight: 700 !important;
   font-size: 14px !important;
@@ -446,7 +447,7 @@
   .cart-link-div
   .PR-0.text-align-center
   .notranslate.margin-0.font-size-13 {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 12px !important;
@@ -482,7 +483,7 @@
   background: #ffffff;
   border: 1px solid #005695;
   border-radius: 5px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -499,7 +500,7 @@
 .spz-2025 .pad-btn-checkout button {
   background: #b83436 !important;
   border-radius: 5px !important;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 16px !important;
@@ -515,7 +516,7 @@
 .spz-2025 .enroll-now.skiptranslate {
   background: #b83436 !important;
   border-radius: 5px !important;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 16px !important;
@@ -527,24 +528,6 @@
   width: 100% !important;
   max-width: 100% !important;
 }
-
-@media (max-width: 1199px) {
-  .spz-2025
-    .card-body-box
-    .card-body
-    .col-3.col-md-3.col-xl-4.row.flex-center-cls
-    .col-7.desktop-only {
-    display: flex !important;
-  }
-
-  .spz-2025
-    .card-body-box
-    .card-body
-    .col-12.col-md-12.col-xl-5.p-none.offbill-price-cls.PR-10 {
-    flex: 1 !important;
-  }
-}
-
 @media (max-width: 767px) {
   .spz-2025 .pad-btn-checkout button {
     width: 100% !important;
@@ -607,21 +590,6 @@
     .col-12.col-md-12.col-xl-5.p-none.offbill-price-cls.PR-10 {
     flex: 1 !important;
   }
-
-  .spz-2025
-    .card-body-box
-    .card-body
-    .col-3.col-md-3.col-xl-4.row.flex-center-cls
-    button {
-    margin-right: 0px;
-  }
-
-  .spz-2025
-    .card-body-box
-    .card-body
-    .col-3.col-md-3.col-xl-4.row.flex-center-cls {
-    padding-right: 0px !important;
-  }
 }
 .spz-2025 .checkout-plans.page-wrap .row.ML-0.MR-0.MB-20 {
   margin-bottom: 10px !important;
@@ -658,7 +626,7 @@
     display: none;
   }
   .spz-2025 .form-message {
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: italic;
     font-weight: 500;
     font-size: 14px;
@@ -696,7 +664,7 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -740,14 +708,14 @@
   margin-bottom: 6px;
   border: 1px solid #fff;
   border-radius: 50%;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 10px;
 }
 
 .stepper-item.active {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -760,7 +728,7 @@
 
 .stepper-item.completed::after {
   position: absolute;
-  content: '';
+  content: "";
   border-bottom: 1px solid #fff;
   width: 100%;
   top: 8px;
@@ -796,7 +764,7 @@
 }
 .toggle-switch:before,
 .toggle-switch:after {
-  content: '';
+  content: "";
 }
 .toggle-switch:before {
   display: block;
@@ -828,7 +796,7 @@
 
 .toggle-label {
   margin-left: 5px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-size: 16px;
   line-height: 140%;
@@ -845,4 +813,23 @@
   body {
     padding-top: 226px;
   }
+}
+
+/* .col-12.flex-center-cls.pad-btn-checkout {
+  display: none !important;
+} */
+
+.register-section div[role="combobox"] {
+  display: none;
+}
+
+.register-section .ng-select.ng-select-single .ng-select-container {
+  height: 46px !important;
+  background: #fff;
+  border: 0.5px solid #cad7e0 !important;
+  color: #cad7e0 !important;
+}
+
+.ng-arrow-wrapper {
+  display: none !important;
 }
