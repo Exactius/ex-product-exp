@@ -151,9 +151,9 @@ function createTest() {
 `;
 
   document.querySelector(".nav-button").outerHTML = `
-    <div class="button vivid-yellow nav-button w-button donate">
-      <a>Donate</a>
-    </div>
+    <a class="button vivid-yellow nav-button w-button donate">
+      Donate
+    </a>
   `;
 
   document.querySelector(".div-block-5").innerHTML = `
