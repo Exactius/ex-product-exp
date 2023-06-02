@@ -688,7 +688,7 @@
         );
         await jQuery('.products-wrapper .products-boxes').html('');
         const products = await jQuery(
-          '.page-wrap.product-list .product-item .card'
+          '.page-wrap.product-list .product-item'
         );
         if (document.querySelector('.products-wrapper')) {
           document.querySelector('.products-wrapper').scrollIntoView({
@@ -736,6 +736,7 @@
           singleProduct['popularItem'] = popularItem;
           singleProduct['bestProductItem'] = bestProductItem;
           singleProduct['productIcon'] = productIcon;
+          singleProduct['component'] = product;
 
           let shortArray = [];
 
@@ -769,99 +770,12 @@
         if (sortedProducts.length < 3) {
           jQuery('.products-boxes').addClass('justify-content-center');
         }
+        
 
-jQuery.each(sortedProducts, function (index, value) {
-  jQuery('.products-wrapper .products-boxes').append(`
-  <div _ngcontent-c7="" class="col-12 col-sm-6 col-md-3 product-item">
-            <hos-product-card-listing-page _ngcontent-c7="" _nghost-c9=""><!----><!---->
-<!----><div _ngcontent-c9="" class="card text-center cardsAlign" ngsreveal="">
-   <div _ngcontent-c9="" class="d-flex align-items-center justify-content-center program-name ga-track-learn-more">
-   ${value.name}
-   </div>
-     <img _ngcontent-c9="" alt="Card Image" class="card-img ga-track-learn-more" loading="lazy" src="${value.image}">
-   <div _ngcontent-c9="" class="card-body">
-      
-      <div _ngcontent-c9="" class="row m-0">
-         <div _ngcontent-c9="" class="col-9 p-0">
-            <!---->
-               <div _ngcontent-c9="" class="price-cls float-left">
-                  <span _ngcontent-c9="" class="notranslate">${value.price}</span>
-                  <span _ngcontent-c9="" class="small-txt">Per Month</span>
-               </div>
-            
-            <!---->
-            <!---->
-         </div>
-         <div _ngcontent-c9="" class="col-3 p-0">
-            <img _ngcontent-c9="" alt="Product Icon" class="product-icon" loading="lazy" src="${value.productIcon}">
-         </div>
-         <div _ngcontent-c9="" class="col-12 p-0">
-            <!---->
-         </div>
-      </div>
-      
-      <div _ngcontent-c9="" class="row m-0 mt-15">
-         <!----><button _ngcontent-c9="" class="btn w-100 enroll-now skiptranslate ga-track-enroll-now" title="ENROLL NOW">ENROLL NOW</button>
-         <!---->
-         <!---->
-      </div>
-      
-      <div _ngcontent-c9="" class="row m-0 d-none">
-        <div _ngcontent-c9="" class="col-4 bottom-btn ga-track-learn-more" title="Learn More">
-         Learn More
-        </div>
+        jQuery.each(sortedProducts, function (index, value) {
+          jQuery('.products-wrapper .products-boxes').append(value.component);
+        });
 
-        <!---->
-         <div _ngcontent-c9="" class="col-8 button-row">
-            <div _ngcontent-c9="" class="col-6 bottom-btn btn-share" title="Share">
-               <span _ngcontent-c9="">Share<img _ngcontent-c9="" alt="" class="img-responsive img-share" src="img/my-account/share.svg" loading="lazy"></span>
-            </div>
-            <div _ngcontent-c9="" class="col-6 bottom-btn" title="Review">
-               <span _ngcontent-c9="">Review<img _ngcontent-c9="" alt="" class="img-responsive img-review" src="img/my-account/review.svg" loading="lazy"></span>
-            </div>
-         </div>
-      </div>
-      <!---->
-      
-   </div>
-</div>
-
-</hos-product-card-listing-page>
-        </div>
-                            `);
-});
-
-        // jQuery.each(sortedProducts, function (index, value) {
-        //   jQuery('.products-wrapper .products-boxes').append(`
-        //             <div data-targettitle="${value.target}" class="products-single-box product-card-spz ${value.productClass} ${value.popularItem} ${value.bestProductItem}">
-        //                 <div class="product-text prod-card">
-        //                 <div class="product-title">
-        //                     <h1>${value.name}</h1>
-        //                     <div class="product-image" style="background-image:url(${value.image})"></div></div>
-        //                     <div class="product-cart-info">
-        //                     <button class="prod-info"><img src="https://res.cloudinary.com/spiralyze/image/upload/v1667969299/AWR/2025/src/info-icon.svg" class="info-blue" alt="get-coverage"><img src="https://res.cloudinary.com/spiralyze/image/upload/v1667981336/AWR/2025/src/info_hover.svg" class="info-hover" alt="get-coverage"></img></button>
-        //                         <div class="product-pricing">${value.priceToShow}</div>
-        //                           <button class="enroll-now-spz">Enroll Now 
-        //                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        //                                 <path d="M7.80304 12.803C7.51015 13.0959 7.51015 13.5708 7.80304 13.8637C8.09594 14.1565 8.57081 14.1565 8.8637 13.8637L7.80304 12.803ZM11.6667 9.99999L12.197 10.5303C12.3377 10.3897 12.4167 10.1989 12.4167 9.99999C12.4167 9.80108 12.3377 9.61031 12.197 9.46966L11.6667 9.99999ZM8.8637 6.13633C8.57081 5.84343 8.09594 5.84343 7.80304 6.13633C7.51015 6.42922 7.51015 6.90409 7.80304 7.19699L8.8637 6.13633ZM8.8637 13.8637L12.197 10.5303L11.1364 9.46966L7.80304 12.803L8.8637 13.8637ZM12.197 9.46966L8.8637 6.13633L7.80304 7.19699L11.1364 10.5303L12.197 9.46966Z" fill="white"/>
-        //                             </svg>
-        //                           </button>
-        //                         </div>
-        //                        </div>
-        //                   <div class="product-text prod-feature">
-        //                 <div class="product-feature">
-        //                 <ul class="product-feature-list"><p>What's Covered</p></ul>
-        //                     </div>
-        //                     <div class="product-cart-info">
-        //                     <button class="prod-cross"><img src="https://res.cloudinary.com/spiralyze/image/upload/v1667969299/AWR/2025/src/cross-icon.svg" alt="get-card"></img></button>
-        //                         <div class="product-pricing">${value.priceToShow}</div>
-        //                         <button class="enroll-now-spz">Enroll Now 
-        //                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        //                                 <path d="M7.80304 12.803C7.51015 13.0959 7.51015 13.5708 7.80304 13.8637C8.09594 14.1565 8.57081 14.1565 8.8637 13.8637L7.80304 12.803ZM11.6667 9.99999L12.197 10.5303C12.3377 10.3897 12.4167 10.1989 12.4167 9.99999C12.4167 9.80108 12.3377 9.61031 12.197 9.46966L11.6667 9.99999ZM8.8637 6.13633C8.57081 5.84343 8.09594 5.84343 7.80304 6.13633C7.51015 6.42922 7.51015 6.90409 7.80304 7.19699L8.8637 6.13633ZM8.8637 13.8637L12.197 10.5303L11.1364 9.46966L7.80304 12.803L8.8637 13.8637ZM12.197 9.46966L8.8637 6.13633L7.80304 7.19699L11.1364 10.5303L12.197 9.46966Z" fill="white"/>
-        //                             </svg>
-        //                             </button></div></div>
-        //                             `);
-        // });
         
         jQuery.each(comboManagement, function (index, cmbo) {
           let totalprice = 0;
