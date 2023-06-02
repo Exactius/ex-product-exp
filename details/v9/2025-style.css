@@ -1,0 +1,30 @@
+.hide {
+    display: none;
+}
+
+.spz-2025 .zipcode-searched {
+    padding: 0 15px;
+}
+.spz-2025 .zipcode-searched {
+    padding: 0px;
+}
+.spz-2025 .content-section {
+    margin-bottom: 10px;
+}
+.spz-2025 .enroll-box.enroll-now-box {
+    margin-bottom: 22px !important;
+}
+
+.spz-2025 .zipcode-searched .pricing-box .pricing-text span {
+    margin-right: 10px;
+}
+
+.spz-2025 .zipcode-searched .selected-location-box label {
+    margin-right: 5px;
+}
+
+@media (max-width: 1000px) { 
+    .spz-2025 .terms-btn {
+        display: none;
+    }
+}
