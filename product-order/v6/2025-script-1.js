@@ -666,7 +666,6 @@
     }
   }, 1000);
   function createTest(url) {
-    console.log('CALL')
     if (navigator.userAgent.indexOf('Mac OS X') != -1) {
       jQuery('body').addClass('mac');
     }
@@ -683,6 +682,7 @@
           datalayerFlag = true;
         }
 
+        await jQuery('.products-wrapper .products-boxes').remove()
         await jQuery('.products-wrapper').remove();
         //.product-list-area.content-section
         jQuery('.product-list-header').after(
@@ -698,7 +698,7 @@
             inline: 'nearest',
           });
         }
-        let priority = 10;
+        let priority = products.length;
         for await (product of products) {
           const singleProduct = {};
           let name = jQuery(product).find('.program-name').html().trim();
@@ -754,7 +754,7 @@
           ) {
             singleProduct['priority'] = shortArray.findIndex((e) => e.includes(name.toLowerCase()));
           } else {
-            // singleProduct['priority'] = priority;
+            singleProduct['priority'] = priority;
           }
           priority += 1;
           ourProducts.push(singleProduct);
@@ -773,9 +773,16 @@
           jQuery('.products-boxes').addClass('justify-content-center');
         }
 
-        jQuery.each(sortedProducts, function (index, value) {
-          jQuery('.products-wrapper .products-boxes').append(value.component);
-        });
+        for await (value of sortedProducts) {
+          await jQuery('.products-wrapper .products-boxes').append(value.component);
+        }
+
+        // jQuery.each(sortedProducts, function (index, value) {
+        //   console.log('value >>>', value)
+        //   jQuery('.products-wrapper .products-boxes').append(value.component);
+        // });
+
+        //class="products-boxes page-wrap product-list row"
 
         
         jQuery.each(comboManagement, function (index, cmbo) {
@@ -909,6 +916,20 @@
           return;
         }
       }
+    }
+  );
+
+  jQuery('body').on(
+    'click',
+    '.btn.primary-btn.set-width.mt-1.btn-margin-right:contains("YES")',
+    async function (e) {
+      e.preventDefault();
+
+      // const programId = jQuery(this).parents('.product-card-spz').data("program-id");
+
+      console.log('CLICKED YES BUTTOn')
+      await removeTest();
+      createTest(location.href);
     }
   );
 

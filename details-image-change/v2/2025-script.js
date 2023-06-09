@@ -13,29 +13,16 @@
     jQuery("body").addClass("spz-2025");
     const productsCheck = setInterval(async function () {
       loadImage();
-      if (
-        jQuery(".detail-link.links-pad-marg.mobile-display-style").length !=
-          0 &&
-        jQuery(".description-heading-text-content").length != 0 &&
-        jQuery(".covered-repair-section").length != 0
-        // jQuery("#detail-link-wrapper").length != 0
-      ) {
+      if (jQuery(".banner-img").length != 0) {
         clearInterval(productsCheck);
-        if (
-          document.querySelector(".product-card-spz") &&
-          document.querySelectorAll(".product-card-spz[data-program-id]")
-            .length == 0
-        ) {
-          await getProducts();
-        }
       }
     }, 100);
   }
 
-  // jQuery(window).on("resize", function () {
-  //   url = location.href;
-  //   urlCheck(url);
-  // });
+  jQuery(window).on("load", function () {
+    url = location.href;
+    urlCheck(url);
+  });
 
   async function removeTest() {
     jQuery("body").removeClass("spz-2025");
@@ -45,6 +32,30 @@
 
   jQuery(window).scroll(function () {
     loadImage();
+  });
+
+  history.pushState = (function (f) {
+    return function pushState() {
+      const ret = f.apply(this, arguments);
+      window.dispatchEvent(new Event("pushstate"));
+      window.dispatchEvent(new Event("locationchange"));
+      return ret;
+    };
+  })(history.pushState);
+  history.replaceState = (function (f) {
+    return function replaceState() {
+      const ret = f.apply(this, arguments);
+      window.dispatchEvent(new Event("replacestate"));
+      window.dispatchEvent(new Event("locationchange"));
+      return ret;
+    };
+  })(history.replaceState);
+  window.addEventListener("popstate", function () {
+    window.dispatchEvent(new Event("locationchange"));
+  });
+  window.addEventListener("locationchange", function () {
+    url = location.href;
+    urlCheck(url);
   });
 
   url = location.href;
@@ -71,12 +82,10 @@
     }
   }
 
-  //
-
   function urlCheck(url) {
     const urlArray = url.split("/");
-    const residentialVar = urlArray[urlArray.length - 3];
-    const lastVar = urlArray[urlArray.length - 2];
+    const residentialVar = urlArray[urlArray.length - 2];
+    const lastVar = urlArray[urlArray.length - 1];
     if (
       (residentialVar === "residential" || residentialVar === "service") &&
       lastVar.includes("-")
