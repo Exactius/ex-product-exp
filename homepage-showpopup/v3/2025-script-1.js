@@ -33,6 +33,7 @@
   }
 
   function ShowPopUp() {
+    document.querySelector(".get-started-btn .desktop-only.text-visible").innerHTML = 'Loading...'
     fetch("https://api.ipify.org/?format=json")
       .then((response) => response.json())
       .then((data) => {
@@ -59,6 +60,7 @@
             } else {
               document.querySelector("#zipCodeClick").click();
             }
+            document.querySelector(".get-started-btn .desktop-only.text-visible").innerHTML = 'GET STARTED'
           });
       });
   }
