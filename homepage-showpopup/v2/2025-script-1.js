@@ -117,9 +117,8 @@
 
     const popupCheck = setInterval(async function () {
       const submitButtonHomepage = document.querySelector(".get-started-btn");
-
-      $('.get-started-btn').after(`<button type="submit" style="display:none" id="zipCodeClick"></button>`)
-
+      if(submitButtonHomepage) {
+        $('.get-started-btn').after(`<button type="submit" style="display:none" id="zipCodeClick"></button>`)
       submitButtonHomepage.addEventListener(
         "click",
         (event) => {
@@ -172,6 +171,7 @@
       };
 
       clearInterval(popupCheck);
+    }
     }, 100);
   }
 
