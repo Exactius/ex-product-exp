@@ -236,7 +236,9 @@
   // });
 
   function urlCheck(urla) {
-    if (urla.includes("/nyc")) {
+    if ( urla.split('/').length && urla.split('/')[urla.split('/').length - 1] !== "" && urla.split('/')[urla.split('/').length - 1] === "nyc" || (
+      urla.split('/')[urla.split('/').length - 1] === "" && urla.split('/')[urla.split('/').length - 2] === "nyc"
+    )) {
       createTest();
     } else {
       removeTest();
