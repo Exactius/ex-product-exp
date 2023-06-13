@@ -24,14 +24,14 @@
         response = JSON.parse(xhr.response);
       }
     };
-    xhr.send(data);
-
-    setTimeout(() => {
+    xhr.onload = () => {
+      console.log("ON LOAD");
       if (redirect === true) {
         $("#leadGenModal").modal("hide");
         document.querySelector("#zipCodeClick").click();
       }
-    }, 2000);
+    };
+    xhr.send(data);
   }
 
   function ShowPopUp() {
