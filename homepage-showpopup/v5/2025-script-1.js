@@ -33,7 +33,9 @@
   }
 
   function ShowPopUp() {
-    document.querySelector(".get-started-btn .desktop-only.text-visible").innerHTML = 'Loading...'
+    document.querySelector(
+      ".get-started-btn .desktop-only.text-visible"
+    ).innerHTML = "Loading...";
     fetch("https://api.ipify.org/?format=json")
       .then((response) => response.json())
       .then((data) => {
@@ -53,14 +55,16 @@
                 popupId,
                 ipAddress,
                 url: testingUrl,
-                isDataFilled: false,
+                isDataFilled: false
               };
               $("#leadGenModal").modal("show");
               // BindEventToSubmit();
             } else {
               document.querySelector("#zipCodeClick").click();
             }
-            document.querySelector(".get-started-btn .desktop-only.text-visible").innerHTML = 'GET STARTED'
+            document.querySelector(
+              ".get-started-btn .desktop-only.text-visible"
+            ).innerHTML = "GET STARTED";
           });
       });
   }
@@ -82,18 +86,15 @@
     const zipcode = document.querySelector(".search-zipcode").value;
     if (!phoneNumber.length || checkValidityOfInput("phone")) {
       document.querySelector("#phone").classList.add("is-invalid");
-      document.getElementsByClassName("asterisk")[0].style.marginRight = '30px';
-      
+      document.getElementsByClassName("asterisk")[0].style.marginRight = "30px";
+
       isValidPhone = false;
     }
     if (!email.length || checkValidityOfInput("email")) {
       document.querySelector("#phone").classList.add("is-invalid");
-      document.getElementsByClassName("asterisk")[1].style.marginRight = '30px';
+      document.getElementsByClassName("asterisk")[1].style.marginRight = "30px";
       isValidEmail = false;
     }
-    //let phoneValid = checkValidityOfInput('phone');
-    //let emailValid = checkValidityOfInput('email');
-    //console.log({phoneValid,emailValid})
 
     if (!isValidPhone || !isValidEmail) {
       return false;
@@ -106,7 +107,7 @@
         popupId,
         ipAddress,
         url: testingUrl,
-        isDataFilled: true,
+        isDataFilled: true
       };
     }
   }
@@ -119,68 +120,65 @@
 
     const popupCheck = setInterval(async function () {
       const submitButtonHomepage = document.querySelector(".get-started-btn");
-      if(submitButtonHomepage) {
-        $('.get-started-btn').after(`<button type="submit" style="display:none" id="zipCodeClick"></button>`)
-      submitButtonHomepage.addEventListener(
-        "click",
-        (event) => {
+      if (submitButtonHomepage) {
+        $(".get-started-btn").after(
+          `<button type="submit" style="display:none" id="zipCodeClick"></button>`
+        );
+        submitButtonHomepage.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
+            const zipCodeLength =
+              document.querySelector(".search-zipcode").value.length;
+            if (zipCodeLength === 5) ShowPopUp();
+            else document.querySelector("#zipCodeClick").click();
+          },
+          false
+        );
+
+        // bind submit
+
+        const popupSubmitButton = document.querySelector("#submit-button");
+        const popupCloseButton = document.querySelector("#close-popup-button");
+        // Add an event listener to the submit button to handle form submission
+        popupSubmitButton.addEventListener("click", (event) => {
           event.preventDefault();
-          const zipCodeLength =
-            document.querySelector(".search-zipcode").value.length;
-          if (zipCodeLength === 5) ShowPopUp();
-          else document.querySelector("#zipCodeClick").click();
-        },
-        false
-      );
+          // Get the values of the form fields
+          let submitData = validateDataOnSubmit();
+          if (!submitData) {
+            return;
+          }
+          isSubmitClick = true;
+          SaveDataToDb(submitData, true);
+        });
 
-      // bind submit
+        popupCloseButton.addEventListener("click", (event) => {
+          event.preventDefault();
+          SaveDataToDb(unsavedData, false);
+        });
 
-      const popupSubmitButton = document.querySelector("#submit-button");
-      const popupCloseButton = document.querySelector("#close-popup-button");
-      // Add an event listener to the submit button to handle form submission
-      popupSubmitButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        // Get the values of the form fields
-        let submitData = validateDataOnSubmit();
-        if (!submitData) {
-          return;
-        }
-        isSubmitClick = true;
-        SaveDataToDb(submitData, true);
-      });
+        // Get the popup and overlay elements
 
-      popupCloseButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        SaveDataToDb(unsavedData, false);
-      });
+        document.onreadystatechange = function () {
+          if (document.readyState === "complete") {
+            $("#email").on("keyup change", function () {
+              checkValidityOfInput("email");
+            });
+            $("#phone").on("keyup change", function () {
+              checkValidityOfInput("phone");
+            });
+            $("#leadGenModal").on("hidden.bs.modal", function (e) {
+              if (isSubmitClick === false) {
+                SaveDataToDb(unsavedData, false);
+              }
+            });
+          }
+        };
 
-      // Get the popup and overlay elements
-
-      document.onreadystatechange = function () {
-        if (document.readyState === "complete") {
-          $("#email").on("keyup change", function () {
-            checkValidityOfInput("email");
-          });
-          $("#phone").on("keyup change", function () {
-            checkValidityOfInput("phone");
-          });
-          $("#leadGenModal").on("hidden.bs.modal", function (e) {
-            if (isSubmitClick === false) {
-              SaveDataToDb(unsavedData, false);
-            }
-          });
-        }
-      };
-
-      clearInterval(popupCheck);
-    }
+        clearInterval(popupCheck);
+      }
     }, 100);
   }
-
-  // jQuery(window).on('resize', function () {
-  //     url = location.href;
-  //     urlCheck(url);
-  // });
 
   async function removeTest() {
     jQuery("body").removeClass("spz-2025");
@@ -210,35 +208,17 @@
     urlCheck(location.href);
   });
 
-//   url = location.href;
+  //   url = location.href;
   urlCheck(location.href);
 
-  // jQuery(document).on('click', '.product-page-search', function () {
-  //   setTimeout(() => {
-  //     something();
-
-  //     glInt = setInterval(() => {
-  //       if (
-  //         document.querySelectorAll('.pace.pace-inactive') &&
-  //         document.querySelectorAll(
-  //           '.page-wrap.product-list .product-item .card'
-  //         ).length != document.querySelectorAll('.has-wc').length
-  //       ) {
-  //         url = location.href;
-  //         urlCheck(url);
-  //       }
-  //     }, 1000);
-  //   }, 2000);
-
-  //   setTimeout(() => {
-  //     clearInterval(glInt);
-  //   }, 10000);
-  // });
-
   function urlCheck(urla) {
-    if ( urla.split('/').length && urla.split('/')[urla.split('/').length - 1] !== "" && urla.split('/')[urla.split('/').length - 1] === "nyc" || (
-      urla.split('/')[urla.split('/').length - 1] === "" && urla.split('/')[urla.split('/').length - 2] === "nyc"
-    )) {
+    if (
+      (urla.split("/").length <= 4 &&
+        urla.split("/")[urla.split("/").length - 1] !== "" &&
+        urla.split("/")[urla.split("/").length - 1].length > 0) ||
+      (urla.split("/")[urla.split("/").length - 1] === "" &&
+        urla.split("/")[urla.split("/").length - 2].length > 0)
+    ) {
       createTest();
     } else {
       removeTest();
