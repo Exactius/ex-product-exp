@@ -26,10 +26,12 @@
     };
     xhr.send(data);
 
-    if (redirect === true) {
-      $("#leadGenModal").modal("hide");
-      document.querySelector("#zipCodeClick").click();
-    }
+    setTimeout(() => {
+      if (redirect === true) {
+        $("#leadGenModal").modal("hide");
+        document.querySelector("#zipCodeClick").click();
+      }
+    }, 2000);
   }
 
   function ShowPopUp() {
