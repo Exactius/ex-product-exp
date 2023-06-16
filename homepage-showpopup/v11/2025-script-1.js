@@ -24,26 +24,30 @@
         response = JSON.parse(xhr.response);
       }
     };
-    xhr.onload = () => {
-      console.log("ON LOAD");
-      if (redirect === true) {
-        $("#leadGenModal").modal("hide");
-        document.querySelector("#zipCodeClick").click();
-      }
-    };
     xhr.send(data);
+
+    if (redirect === true) {
+      $("#leadGenModal").modal("hide");
+      document.querySelector("#zipCodeClick").click();
+    }
   }
 
   function getIpAddress(response) {
     var data = response.replace(/[\r\n]+/g, '","').replace(/\=+/g, '":"');
     data = '{"' + data.slice(0, data.lastIndexOf('","')) + '"}';
     var jsondata = JSON.parse(data);
+    console.log("jsondata.ip >>", jsondata.ip);
     return jsondata.ip;
   }
 
   function ShowPopUp() {
+    document.querySelector(
+      ".get-started-btn .desktop-only.text-visible"
+    ).innerHTML = "Loading...";
     fetch("https://www.cloudflare.com/cdn-cgi/trace")
-      .then((response) => response.text())
+      .then((response) => {
+        return response.text();
+      })
       .then((data) => {
         ipAddress = getIpAddress(data);
         getUrl = `${getUrl}&ipAddress=${ipAddress}`;
@@ -64,10 +68,13 @@
                 isDataFilled: false
               };
               $("#leadGenModal").modal("show");
-              BindEventToSubmit();
+              // BindEventToSubmit();
             } else {
               document.querySelector("#zipCodeClick").click();
             }
+            document.querySelector(
+              ".get-started-btn .desktop-only.text-visible"
+            ).innerHTML = "GET STARTED";
           });
       });
   }
@@ -98,6 +105,9 @@
       document.getElementsByClassName("asterisk")[1].style.marginRight = "30px";
       isValidEmail = false;
     }
+    //let phoneValid = checkValidityOfInput('phone');
+    //let emailValid = checkValidityOfInput('email');
+    //console.log({phoneValid,emailValid})
 
     if (!isValidPhone || !isValidEmail) {
       return false;
@@ -183,6 +193,11 @@
     }, 100);
   }
 
+  // jQuery(window).on('resize', function () {
+  //     url = location.href;
+  //     urlCheck(url);
+  // });
+
   async function removeTest() {
     jQuery("body").removeClass("spz-2025");
   }
@@ -214,13 +229,35 @@
   //   url = location.href;
   urlCheck(location.href);
 
+  // jQuery(document).on('click', '.product-page-search', function () {
+  //   setTimeout(() => {
+  //     something();
+
+  //     glInt = setInterval(() => {
+  //       if (
+  //         document.querySelectorAll('.pace.pace-inactive') &&
+  //         document.querySelectorAll(
+  //           '.page-wrap.product-list .product-item .card'
+  //         ).length != document.querySelectorAll('.has-wc').length
+  //       ) {
+  //         url = location.href;
+  //         urlCheck(url);
+  //       }
+  //     }, 1000);
+  //   }, 2000);
+
+  //   setTimeout(() => {
+  //     clearInterval(glInt);
+  //   }, 10000);
+  // });
+
   function urlCheck(urla) {
     if (
-      (urla.split("/").length <= 4 &&
+      (urla.split("/").length &&
         urla.split("/")[urla.split("/").length - 1] !== "" &&
-        urla.split("/")[urla.split("/").length - 1].length > 0) ||
+        urla.split("/")[urla.split("/").length - 1] === "nyc") ||
       (urla.split("/")[urla.split("/").length - 1] === "" &&
-        urla.split("/")[urla.split("/").length - 2].length > 0)
+        urla.split("/")[urla.split("/").length - 2] === "nyc")
     ) {
       createTest();
     } else {
