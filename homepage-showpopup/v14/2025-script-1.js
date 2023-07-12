@@ -24,14 +24,20 @@
         response = JSON.parse(xhr.response);
       }
     };
-    xhr.onload = () => {
-      console.log("ON LOAD");
-      if (redirect === true) {
-        $("#leadGenModal").modal("hide");
-        document.querySelector("#zipCodeClick").click();
-      }
-    };
     xhr.send(data);
+
+    if (redirect === true) {
+      $("#leadGenModal").modal("hide");
+      document.querySelector("#zipCodeClick").click();
+    }
+  }
+
+  function getIpAddress(response) {
+    var data = response.replace(/[\r\n]+/g, '","').replace(/\=+/g, '":"');
+    data = '{"' + data.slice(0, data.lastIndexOf('","')) + '"}';
+    var jsondata = JSON.parse(data);
+    console.log("jsondata.ip >>", jsondata.ip);
+    return jsondata.ip;
   }
 
   function ShowPopUp() {
@@ -39,37 +45,55 @@
       ".get-started-btn .desktop-only.text-visible"
     ).innerHTML = "Loading...";
     // fetch("https://api.ipify.org/?format=json")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     ipAddress = data.ip;
-    ipAddress = 12345;
-    getUrl = `${getUrl}&ipAddress=${ipAddress}`;
-    fetch(getUrl)
+    // fetch("https://checkip.amazonaws.com/")
+    fetch("https://www.cloudflare.com/cdn-cgi/trace")
       .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          return { skipCount: 0, isDataFilled: false };
-        }
+        return response.text();
       })
+      // .then((response) => response.json())
       .then((data) => {
-        if (data.skipCount <= maxLimit && data.isDataFilled === false) {
-          unsavedData = {
-            popupId,
-            ipAddress,
-            url: testingUrl,
-            isDataFilled: false
-          };
-          $("#leadGenModal").modal("show");
-          // BindEventToSubmit();
-        } else {
-          document.querySelector("#zipCodeClick").click();
-        }
-        document.querySelector(
-          ".get-started-btn .desktop-only.text-visible"
-        ).innerHTML = "GET STARTED";
+        console.log("data >>>", data);
+        ipAddress = getIpAddress(data);
+        getUrl = `${getUrl}&ipAddress=${ipAddress}`;
+        fetch(getUrl)
+          .then((response) => {
+            if (response.status === 200) {
+              return response.json();
+            } else {
+              return { skipCount: 0, isDataFilled: false };
+            }
+          })
+          .then((data) => {
+            if (data.skipCount <= maxLimit && data.isDataFilled === false) {
+              unsavedData = {
+                popupId,
+                ipAddress,
+                url: testingUrl,
+                isDataFilled: false
+              };
+
+              $("#leadGenModal").modal("show");
+
+              // SKIP NOW BUTTON
+              const skipNow = document.querySelector("#skip-now");
+              skipNow.addEventListener(
+                "click",
+                (event) => {
+                  document.querySelector("#zipCodeClick").click();
+                },
+                false
+              );
+              // SKIP NOW BUTTON = ENDS
+
+              // BindEventToSubmit();
+            } else {
+              document.querySelector("#zipCodeClick").click();
+            }
+            document.querySelector(
+              ".get-started-btn .desktop-only.text-visible"
+            ).innerHTML = "GET STARTED";
+          });
       });
-    // });
   }
 
   function checkValidityOfInput(input) {
@@ -98,6 +122,9 @@
       document.getElementsByClassName("asterisk")[1].style.marginRight = "30px";
       isValidEmail = false;
     }
+    //let phoneValid = checkValidityOfInput('phone');
+    //let emailValid = checkValidityOfInput('email');
+    //console.log({phoneValid,emailValid})
 
     if (!isValidPhone || !isValidEmail) {
       return false;
@@ -183,6 +210,11 @@
     }, 100);
   }
 
+  // jQuery(window).on('resize', function () {
+  //     url = location.href;
+  //     urlCheck(url);
+  // });
+
   async function removeTest() {
     jQuery("body").removeClass("spz-2025");
   }
@@ -213,6 +245,28 @@
 
   //   url = location.href;
   urlCheck(location.href);
+
+  // jQuery(document).on('click', '.product-page-search', function () {
+  //   setTimeout(() => {
+  //     something();
+
+  //     glInt = setInterval(() => {
+  //       if (
+  //         document.querySelectorAll('.pace.pace-inactive') &&
+  //         document.querySelectorAll(
+  //           '.page-wrap.product-list .product-item .card'
+  //         ).length != document.querySelectorAll('.has-wc').length
+  //       ) {
+  //         url = location.href;
+  //         urlCheck(url);
+  //       }
+  //     }, 1000);
+  //   }, 2000);
+
+  //   setTimeout(() => {
+  //     clearInterval(glInt);
+  //   }, 10000);
+  // });
 
   function urlCheck(urla) {
     if (
