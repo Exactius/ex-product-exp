@@ -1,0 +1,11 @@
+/* .card-body.w-100 {
+  margin-top: 40px;
+} */
+
+.products-boxes.product-list {
+  padding: 48px 0 40px 0;
+}
+
+.page-wrap.product-list:not(.products-boxes) {
+  display: none;
+}
