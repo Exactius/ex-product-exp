@@ -17,12 +17,16 @@
   async function SaveDataToDb(data, redirect = true) {
     data = JSON.stringify(data);
 
+    const postData = {
+      ...data,
+      url: window.location.href
+    };
+
+    console.log(postData);
+
     await fetch(`https://hook.us1.make.com/oenbcsi5j18c4za2osjinaqan13aauh8`, {
       method: "POST",
-      body: {
-        ...data,
-        url: window.location.href
-      },
+      body: postData,
       headers: {
         "Content-Type": "application/json"
       }
