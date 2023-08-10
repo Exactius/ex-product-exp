@@ -1,13 +1,6 @@
 (function () {
-  const basePath =
-    "https://scpprd.prod.apimanagement.us10.hana.ondemand.com/api/hos/api/customer/customer-lead-gen";
-  const apiKey = "Ng0glnSyFyARBd7AGghwnAAjV1ORz5Vp";
   let ipAddress = 0;
   let testingUrl = window.location.origin + window.location.pathname;
-  const popupId = 1;
-  const maxLimit = 30000;
-  let url = `${basePath}/save-lead?APIKey=${apiKey}`;
-  let getUrl = `${basePath}?url=${testingUrl}&popupId=${popupId}&APIKey=${apiKey}`;
   let isSubmitClick = false;
   let unsavedData = {};
   const version = 2.0;
@@ -55,44 +48,29 @@
       .then((data) => {
         ipAddress = getIpAddress(data);
 
-        getUrl = `${getUrl}&ipAddress=${ipAddress}`;
-        fetch(getUrl)
-          .then((response) => {
-            if (response.status === 200) {
-              return response.json();
-            } else {
-              return { skipCount: 0, isDataFilled: false };
-            }
-          })
-          .then((data) => {
-            if (data.skipCount <= maxLimit && data.isDataFilled === false) {
-              unsavedData = {
-                popupId,
-                ipAddress,
-                url: testingUrl,
-                isDataFilled: false,
+        unsavedData = {
+          ipAddress,
+          url: testingUrl,
+        };
+
+        $("#leadGenModal").modal("show");
+
+        // SKIP NOW BUTTON
+        const skipNow = document.querySelector("#skip-now");
+        skipNow.addEventListener(
+          "click",
+          (event) => {
+            if (typeof window !== "undefined" && window !== undefined) {
+              window.dataLayer = window.dataLayer || [];
+              const data = {
+                event: "skip_now",
               };
-
-              $("#leadGenModal").modal("show");
-
-              // SKIP NOW BUTTON
-              const skipNow = document.querySelector("#skip-now");
-              skipNow.addEventListener(
-                "click",
-                (event) => {
-                  if (typeof window !== "undefined" && window !== undefined) {
-                    window.dataLayer = window.dataLayer || [];
-                    const data = {
-                      event: "skip_now",
-                    };
-                    window.dataLayer.push(data);
-                  }
-                },
-                false
-              );
-              // SKIP NOW BUTTON = ENDS
+              window.dataLayer.push(data);
             }
-          });
+          },
+          false
+        );
+        // SKIP NOW BUTTON = ENDS
       });
   }
 
@@ -178,10 +156,8 @@
         email,
         address,
         zipcode,
-        popupId,
         ipAddress,
         url: testingUrl,
-        isDataFilled: true,
       };
     }
   }
@@ -221,7 +197,7 @@
       popupCloseButton.addEventListener("click", (event) => {
         event.preventDefault();
         $("#leadGenModal").modal("hide");
-        // SaveDataToDb(unsavedData, false);
+        SaveDataToDb(unsavedData);
       });
 
       // Get the popup and overlay elements
@@ -279,8 +255,7 @@
   }
 
   jQuery(window).on("resize", function () {
-    url = location.href;
-    urlCheck(url);
+    urlCheck(location.href);
   });
 
   async function removeTest() {
@@ -325,8 +300,7 @@
             ".page-wrap.product-list .product-item .card"
           ).length != document.querySelectorAll(".has-wc").length
         ) {
-          url = location.href;
-          urlCheck(url);
+          urlCheck(location.href);
         }
       }, 1000);
     }, 2000);
