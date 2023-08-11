@@ -187,7 +187,7 @@
         if (typeof window !== "undefined" && window !== undefined) {
           window.dataLayer = window.dataLayer || [];
           const data = {
-            event: "lead_gen_submission",
+            event: "lead_submission"
           };
           window.dataLayer.push(data);
         }
