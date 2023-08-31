@@ -1,10 +1,9 @@
 (function () {
   let ipAddress = 0;
-  let testingUrl = window.location.origin + window.location.pathname;
+  let testingUrl = `${window.location.href}`;
   let isSubmitClick = false;
   let unsavedData = {};
   const version = 2.0;
-  let isLoading;
   console.log(`Version ${version}`);
 
   function getIpAddress(response) {
@@ -13,6 +12,20 @@
     var jsondata = JSON.parse(data);
     return jsondata.ip;
   }
+
+  var today = new Date();
+  var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
+
+  const setCookie = (name, value) => {
+    document.cookie =
+      name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+  };
+
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+  };
 
   async function SaveDataToDb(data) {
     data = JSON.stringify(data);
@@ -26,53 +39,54 @@
       },
     })
       .then((res) => {
-        console.log("res >>> ", res);
         $("#leadGenModal").modal("hide");
       })
       .catch((err) => {
         console.log("Getting error >> ", err);
       })
       .finally(() => {
-        document.querySelector("#submit-button").textContent =
-          "GET MY DISCOUNT";
+        setCookie("dae_form_submitted", true);
+        document.querySelector("#submit-button").textContent = "Confirm";
       });
   }
 
   function ShowPopUp() {
-    fetch("https://api.ipify.org/?format=json");
-    fetch("https://checkip.amazonaws.com/");
-    fetch("https://www.cloudflare.com/cdn-cgi/trace")
-      .then((response) => {
-        return response.text();
-      })
-      // .then((response) => response.json())
-      .then((data) => {
-        ipAddress = getIpAddress(data);
+    if (!getCookie("dae_form_submitted")) {
+      fetch("https://api.ipify.org/?format=json");
+      fetch("https://checkip.amazonaws.com/");
+      fetch("https://www.cloudflare.com/cdn-cgi/trace")
+        .then((response) => {
+          return response.text();
+        })
+        // .then((response) => response.json())
+        .then((data) => {
+          ipAddress = getIpAddress(data);
 
-        unsavedData = {
-          ipAddress,
-          url: testingUrl,
-        };
+          unsavedData = {
+            ipAddress,
+            url: testingUrl,
+          };
 
-        $("#leadGenModal").modal("show");
+          $("#leadGenModal").modal("show");
 
-        // SKIP NOW BUTTON
-        const skipNow = document.querySelector("#skip-now");
-        skipNow.addEventListener(
-          "click",
-          (event) => {
-            if (typeof window !== "undefined" && window !== undefined) {
-              window.dataLayer = window.dataLayer || [];
-              const data = {
-                event: "skip_now",
-              };
-              window.dataLayer.push(data);
-            }
-          },
-          false
-        );
-        // SKIP NOW BUTTON = ENDS
-      });
+          // SKIP NOW BUTTON
+          const skipNow = document.querySelector("#skip-now");
+          skipNow.addEventListener(
+            "click",
+            (event) => {
+              if (typeof window !== "undefined" && window !== undefined) {
+                window.dataLayer = window.dataLayer || [];
+                const data = {
+                  event: "skip_now",
+                };
+                window.dataLayer.push(data);
+              }
+            },
+            false
+          );
+          // SKIP NOW BUTTON = ENDS
+        });
+    }
   }
 
   function checkValidityOfZipcode() {
@@ -317,3 +331,69 @@
     }
   }
 })();
+
+const prods = [
+  {
+    id: 1,
+    name: "aaaa",
+  },
+  {
+    id: 2,
+    name: "aaa",
+  },
+  {
+    id: 3,
+    name: "bbbb",
+  },
+  {
+    id: 4,
+    name: "bb",
+  },
+  {
+    id: 5,
+    name: "cccc",
+  },
+  {
+    id: 6,
+    name: "ccc",
+  },
+];
+
+const result = [
+  {
+    aa: [
+      {
+        id: 1,
+        name: "aaaa",
+      },
+      {
+        id: 2,
+        name: "aaa",
+      },
+    ],
+  },
+  {
+    bb: [
+      {
+        id: 3,
+        name: "bbbb",
+      },
+      {
+        id: 4,
+        name: "bb",
+      },
+    ],
+  },
+  {
+    cc: [
+      {
+        id: 5,
+        name: "cccc",
+      },
+      {
+        id: 6,
+        name: "ccc",
+      },
+    ],
+  },
+];
