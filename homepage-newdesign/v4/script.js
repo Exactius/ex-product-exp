@@ -3,11 +3,11 @@
     "https://scpprd.prod.apimanagement.us10.hana.ondemand.com/api/hos/api/customer/customer-lead-gen";
   const apiKey = "Ng0glnSyFyARBd7AGghwnAAjV1ORz5Vp";
   let ipAddress = 0;
-  let testingUrl = window.location.origin + window.location.pathname;
+  let testingUrl = window.location.href;
   const popupId = 1;
   const maxLimit = 30000;
-  const url = `${basePath}/save-lead?APIKey=${apiKey}`;
-  var xhr = new XMLHttpRequest();
+  // const url = `${basePath}/save-lead?APIKey=${apiKey}`;
+  // var xhr = new XMLHttpRequest();
   let getUrl = `${basePath}?url=${testingUrl}&popupId=${popupId}&APIKey=${apiKey}`;
   let isSubmitClick = false;
   let unsavedData = {};
@@ -33,14 +33,14 @@
         console.log("Getting error >> ", err);
       });
 
-    xhr.open("POST", url);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        response = JSON.parse(xhr.response);
-      }
-    };
-    xhr.send(data);
+    // xhr.open("POST", url);
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    // xhr.onreadystatechange = () => {
+    //   if (xhr.readyState === 4) {
+    //     response = JSON.parse(xhr.response);
+    //   }
+    // };
+    // xhr.send(data);
 
     document.querySelector("#submit-button").textContent = "Confirm";
     document.querySelector("#submit-button").disabled = false;
@@ -55,7 +55,6 @@
     var data = response.replace(/[\r\n]+/g, '","').replace(/\=+/g, '":"');
     data = '{"' + data.slice(0, data.lastIndexOf('","')) + '"}';
     var jsondata = JSON.parse(data);
-    console.log("jsondata.ip >>", jsondata.ip);
     return jsondata.ip;
   }
 
@@ -178,6 +177,7 @@
     if (!isValidEmail || !isValidPhone) {
       return false;
     } else {
+      console.log(window.location.href);
       return {
         phoneNumber,
         email,
@@ -240,7 +240,7 @@
           if (typeof window !== "undefined" && window !== undefined) {
             window.dataLayer = window.dataLayer || [];
             const data = {
-              event: "discover_plans",
+              event: "lead_submission",
             };
             window.dataLayer.push(data);
           }
@@ -253,7 +253,7 @@
           document.querySelector(
             ".get-started-btn .desktop-only.text-visible"
           ).innerHTML = "GET STARTED";
-          // SaveDataToDb(unsavedData, false);
+          // SaveDataToDb(unsavedData, false  );
         });
 
         // Get the popup and overlay elements
@@ -306,34 +306,10 @@
     window.dispatchEvent(new Event("locationchange"));
   });
   window.addEventListener("locationchange", function () {
-    // url = location.href;
     urlCheck(location.href);
   });
 
-  //   url = location.href;
   urlCheck(location.href);
-
-  // jQuery(document).on('click', '.product-page-search', function () {
-  //   setTimeout(() => {
-  //     something();
-
-  //     glInt = setInterval(() => {
-  //       if (
-  //         document.querySelectorAll('.pace.pace-inactive') &&
-  //         document.querySelectorAll(
-  //           '.page-wrap.product-list .product-item .card'
-  //         ).length != document.querySelectorAll('.has-wc').length
-  //       ) {
-  //         url = location.href;
-  //         urlCheck(url);
-  //       }
-  //     }, 1000);
-  //   }, 2000);
-
-  //   setTimeout(() => {
-  //     clearInterval(glInt);
-  //   }, 10000);
-  // });
 
   function urlCheck(urla) {
     if (
