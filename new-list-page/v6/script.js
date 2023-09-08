@@ -1163,6 +1163,17 @@
               `
             );
           }
+
+          setTimeout(() => {
+            if (
+              $(".product-list.row.show")[0].childElementCount === 0 &&
+              !data
+            ) {
+              prodListHtmlOld.append(
+                `<p class="not-found-prods">No plans available for this area</p>`
+              );
+            }
+          }, 200);
         };
 
         const loadSwiper = () => {
@@ -1348,6 +1359,14 @@
             filteredFinalArr.forEach(
               ({ heading, description, img, data, mobileImg, idx }) => {
                 loadProducts(heading, description, img, data, mobileImg, idx);
+                if (e.target.checked) {
+                  setTimeout(() => {
+                    window.scrollTo({
+                      top: $(`#group-${index}`).position().top - 100,
+                      behavior: "smooth",
+                    });
+                  }, 100);
+                }
               }
             )
           );
