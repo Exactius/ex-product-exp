@@ -42,40 +42,47 @@ function createTest() {
     },
     {
       id: 9,
-      label: "Other  ______________",
-      value: "other",
+      label: "Other",
+      value: "other_input",
     },
   ];
 
   let selectedCheckBoxes = [];
+  let other_input_val = "";
 
   const interval = setInterval(() => {
-    // $("#bio_ep").removeAttr("style")
-
     if ($(".checkbox_container")) {
       $(".popup-wrapper").css("display", "flex");
       $(".checkbox_container").html(`
-        ${checkBoxes
-          .map(({ value, label, id }) => {
-            return `
-            <label for="checkbox${id}" class="checkbox_wrapper control-checkbox">
-                <input id="checkbox${id}" value="${value}" type="checkbox" />
-                <div class="checkbox_indicator"></div>
-                <p>${label}</p>
-            </label>
-        `;
-          })
-          .join(" ")}
-    `);
+          ${checkBoxes
+            .map(({ value, label, id }) => {
+              return `
+              <label for="checkbox${id}" class="checkbox_wrapper control-checkbox">
+                  <input id="checkbox${id}" value="${value}" type="checkbox" />
+                  <div class="checkbox_indicator"></div>
+                  ${
+                    label.toLowerCase() !== "other"
+                      ? `<p>${label}</p>`
+                      : `<p>${label}  <input type="text" class="other_input" disabled /></p>`
+                  }
+              </label>
+          `;
+            })
+            .join(" ")}
+      `);
 
       $(".popup_submit_btn").attr("disabled", true);
 
       const handleChange = (e) => {
         if (e.target.checked) {
-          selectedCheckBoxes.push(e.target.value);
+          if (e.target.value.includes("other_input")) {
+            selectedCheckBoxes.push(other_input_val || e.target.value);
+          } else {
+            selectedCheckBoxes.push(e.target.value);
+          }
         } else {
           selectedCheckBoxes = selectedCheckBoxes.filter((val) => {
-            return val !== e.target.value;
+            return !val.includes(e.target.value);
           });
         }
 
@@ -96,6 +103,8 @@ function createTest() {
         console.log("submited ", selectedCheckBoxes);
         setTimeout(() => {
           $("#bio_ep_close").click();
+          $(".popup_submit_btn").text("Submit");
+          $(".popup_submit_btn").attr("disabled", false);
         }, 1000);
       });
 
@@ -133,6 +142,20 @@ function createTest() {
 
       $("#checkbox9").change((e) => {
         handleChange(e);
+        if (e.target.checked) {
+          $(".other_input").attr("disabled", false);
+        } else {
+          $(".other_input").attr("disabled", true);
+        }
+      });
+
+      $(".other_input").change((e) => {
+        other_input_val = `other_input_${e.target.value}`;
+        selectedCheckBoxes = selectedCheckBoxes.filter((item) => {
+          return !item.includes("other_input");
+        });
+
+        selectedCheckBoxes.push(other_input_val);
       });
 
       clearInterval(interval);
