@@ -1,0 +1,227 @@
+#content {
+  font-family: Roboto;
+  font-size: 14px;
+  position: relative;
+}
+
+#bio_ep_bg {
+  background-color: rgba(0, 86, 149, 0.4) !important;
+}
+
+#bio_ep {
+  left: 50%;
+  top: 360px !important;
+  box-shadow: none !important;
+  border-radius: 5px !important;
+  width: 484px !important;
+  height: auto;
+  max-height: 85%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#bio_ep_close {
+  visibility: hidden;
+}
+
+.popup-content {
+  padding: 30px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 484px;
+  height: fit-content;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.popup-header .popup_heading {
+  color: #005695;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+}
+
+.popup-header .popup_description,
+.popup-header .popup_sub-description {
+  max-width: 344px;
+  line-height: 120%;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-align: center;
+  font-style: normal;
+}
+
+.popup-header .popup_description {
+  color: #000 !important;
+  font-size: 18px;
+  padding-bottom: 8px;
+}
+
+.popup-header .popup_sub-description {
+  color: #757575;
+  font-size: 14px;
+}
+
+.popup-body .checkbox_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-body .checkbox_container .checkbox_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-body .checkbox_container .checkbox_wrapper label {
+  color: #333;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.checkbox_wrapper {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left: 26px;
+  margin-bottom: 0;
+  width: fit-content;
+}
+
+.checkbox_wrapper input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.checkbox_indicator {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background: #fff;
+  border: 1px solid #8bb0cc;
+  border-radius: 4px;
+}
+
+.checkbox_wrapper input:focus ~ .checkbox_indicator,
+.checkbox_wrapper:hover input ~ .checkbox_indicator {
+  background: #fff;
+}
+
+.checkbox_wrapper input:checked ~ .checkbox_indicator {
+  background: #005695;
+  border-color: #005695;
+}
+
+.checkbox_wrapper input:disabled ~ .checkbox_indicator {
+  background: #fff;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.checkbox_indicator:after {
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox_wrapper input:checked ~ .checkbox_indicator:after {
+  display: block;
+}
+
+.control-checkbox .checkbox_indicator:after {
+  left: 5px;
+  top: 2px;
+  width: 2px;
+  height: 6px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.control-checkbox input:disabled ~ .checkbox_indicator:after {
+  border-color: #7b7b7b;
+}
+
+.checkbox_wrapper p {
+  color: #333;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 0;
+}
+
+.popup_submit_btn {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  padding: 16px 32px;
+  display: flex;
+  max-height: 35px;
+  justify-content: center;
+  align-items: center;
+  max-width: 180px;
+  width: 100%;
+  gap: 10px;
+  margin: 0 auto;
+  border: none;
+  background-color: #ec7923;
+  border-radius: 5px;
+}
+
+.popup_submit_btn:disabled {
+  background-color: #d0d1d1;
+  cursor: not-allowed;
+}
+
+.popup-close_btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-content {
+    padding: 30px 40px;
+    gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .popup-content {
+    padding: 20px 25px;
+  }
+  .popup-header .popup_heading {
+    font-size: 20px;
+  }
+  .popup-header .popup_description {
+    font-size: 16px;
+  }
+  .checkbox_wrapper p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  #bio_ep {
+    width: 85% !important;
+  }
+}
