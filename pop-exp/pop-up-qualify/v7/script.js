@@ -63,7 +63,7 @@ makeOfferBtn[0].addEventListener("click", () => {
 
     const formWrapper = document.querySelector("#pop_make_offer_modal_form");
     const mainWrapper = document.querySelectorAll(
-      ".make_offer_modal_modal_column__Dylcr"
+      ".make_offer_modal_modal_column__T94QJ"
     )[1];
     const newSubmitFrm = document.createElement("div");
     newSubmitFrm.className = "submit-frm";
