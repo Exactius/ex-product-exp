@@ -72,7 +72,7 @@ makeOfferBtn[0].addEventListener("click", () => {
         <form
           id="pop_make_offer_modal_form_1"
           name="pop_make_offer_modal_form_1"
-          class="form_input_element_mb-4__4HWJW cm_register_form_box make_offer_modal_contact_consultant_form__g_a_7"
+          class="form_input_element_mb-4__CK9sE cm_register_form_box make_offer_modal_contact_consultant_form__ePm_I"
           autocomplete="on"
         >
           <fieldset>
