@@ -218,7 +218,7 @@ makeOfferBtn[0].addEventListener("click", () => {
           </fieldset>
           <div class="buttons form_btns">
             <button
-              class="mb-4 button-yellow"
+              class="mb-4 button-yellow submit-full-width-mobile"
               id="submit1"
               type="submit1"
               form="pop_make_offer_modal_form_1"

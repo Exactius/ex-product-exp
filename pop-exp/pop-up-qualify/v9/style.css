@@ -77,3 +77,10 @@
   max-width: 16px;
   max-height: 17px;
 }
+
+@media (max-width: 900px) {
+  .submit-full-width-mobile {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
