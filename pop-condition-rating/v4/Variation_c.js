@@ -1,3 +1,14 @@
+const getCookieValue = (name) => {
+  const regex = new RegExp(`(^| )${name}=([^;]+)`);
+  const match = document.cookie.match(regex);
+
+  if (match) {
+    return match[2];
+  }
+};
+
+const indName = getCookieValue("ind_id") === "1" ? "Boat" : "Vehicle";
+
 const divEle = document.createElement("div");
 
 const conditionHTML = `
@@ -18,7 +29,7 @@ const conditionHTML = `
             />
           </svg>
 
-          <p class="condition_item__title">Vehicle Condition</p>
+          <p class="condition_item__title">${indName} Rating</p>
         </div>
 
         <button class="condition_item_action__btn see_vehicle_condition_btn">
